@@ -4,22 +4,17 @@ const LBL={POR:'Portero',DFCI:'Central izq.',DFCD:'Central der.',LI:'Lateral izq
   MC:'Mediocentro',MCOI:'Mediapunta izq.',MCOD:'Mediapunta der.',EI:'Extremo izq.',ED:'Extremo der.',DEL:'Delantero'};
 const SHORT={POR:'POR',DFCI:'DFC-I',DFCD:'DFC-D',LI:'LI',LD:'LD',MC:'MC',MCOI:'MCO-I',MCOD:'MCO-D',EI:'EI',ED:'ED',DEL:'DEL'};
 const ORDER=['DEL','EI','ED','MCOI','MCOD','MC','LI','DFCI','DFCD','LD','POR'];
-/* posiciones del once sobre el campo, en % — ataque hacia arriba. Es la referencia de la
-   que sale la vista tumbada; los cinco valores de ataque están calibrados mirando ESA
-   vista, que es donde Mario los colocó. La de pie los sobrescribe más abajo. */
-const XY_BASE={DEL:[50,13],EI:[19,21],ED:[81,21],MCOI:[22,48],MCOD:[77,48],MC:[50,56],
+/* posiciones del once sobre el campo, en % — ataque hacia arriba. Una sola tabla para
+   las dos vistas: el ataque está calibrado a ojo sobre la vista tumbada y la de pie usa
+   lo mismo, girado. */
+const XY={DEL:[50,13],EI:[19,21],ED:[81,21],MCOI:[22,48],MCOD:[77,48],MC:[50,56],
   LI:[12,72],DFCI:[37,77],DFCD:[63,77],LD:[88,72],POR:[50,91]};
 /* la vista ancha es la base girada un cuarto de vuelta: el ataque pasa de arriba a la
    derecha. Al girar, el costado izquierdo del equipo queda ARRIBA, así que LI va arriba
    y LD abajo. No es una elección de estilo: es la misma escena rotada, y colocarla a ojo
    reintroduce el error de lados que ya traía el Numbers original. */
 const gira=([x,y])=>[100-y,x];
-const XYH=Object.fromEntries(Object.entries(XY_BASE).map(([k,v])=>[k,gira(v)]));
-/* la vista de pie lleva sus propios valores en el ataque: en un campo estrecho conviene
-   otro reparto que en uno tumbado, y son los que ya estaban afinados. Fijarlos aquí es
-   además lo que impide que un retoque pensado para la vista ancha se cuele en la de pie
-   por la puerta de atrás. */
-const XY={...XY_BASE,DEL:[50,11],EI:[16,21],ED:[84,21],MCOI:[26,41],MCOD:[74,41]};
+const XYH=Object.fromEntries(Object.entries(XY).map(([k,v])=>[k,gira(v)]));
 const sitio=(v,h)=>`--x:${v[0]}%;--y:${v[1]}%;--xh:${h[0]}%;--yh:${h[1]}%`;
 /* listas que abren los contadores de cabecera */
 const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},
@@ -300,24 +295,9 @@ function soltarFondo(){
   scrollDelFondo=null;
 }
 
-/* La hoja va anclada abajo, así que animar su altura hace que el borde de arriba suba o
-   baje solo. height:auto no se puede transicionar: hay que fijar la altura de partida en
-   píxeles, forzar el reflow y pasar a la de llegada, y devolverla a auto al terminar. */
-function animarAlto(d,desde){
-  d.style.height='auto';
-  const hasta=d.getBoundingClientRect().height;
-  if(Math.round(desde)===Math.round(hasta)){d.style.height='';return;}
-  d.style.height=desde+'px';
-  d.getBoundingClientRect();
-  d.style.height=hasta+'px';
-  clearTimeout(d._alto);
-  d._alto=setTimeout(()=>{d.style.height='';},300);
-}
-
 function pintar(html){
   const d=$('#drawer');
   const abriendo=d.hidden;
-  const desde=(!abriendo&&enHoja())?d.getBoundingClientRect().height:null;
   if(abriendo){
     origenFoco=document.activeElement;
     d.hidden=false;requestAnimationFrame(()=>{d.classList.add('on');$('#scrim').classList.add('on');});
@@ -329,14 +309,12 @@ function pintar(html){
   d.innerHTML=`<span class="grab" aria-hidden="true"></span>`+html;
   d.scrollTop=0;
   d.focus({preventScroll:true});
-  if(desde!==null)animarAlto(d,desde);
 }
 function cerrar(){
   state.panel=null;
   const d=$('#drawer');if(d.hidden)return;
   d.classList.remove('on');$('#scrim').classList.remove('on');
   document.body.classList.remove('con-panel');
-  clearTimeout(d._alto);d.style.height='';
   soltarFondo();
   setTimeout(()=>{if(!state.panel)d.hidden=true;},220);
   if(origenFoco&&document.body.contains(origenFoco))origenFoco.focus({preventScroll:true});

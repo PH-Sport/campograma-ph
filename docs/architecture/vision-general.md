@@ -43,14 +43,13 @@ Cada disco lleva las dos posiciones como variables CSS (`--x/--y` y `--xh/--yh`)
 media query elige cuál usa. Hay un SVG de líneas por orientación y el CSS enseña el que
 toca.
 
-`XY_BASE` es la tabla canónica de las once posiciones. De ahí salen las dos vistas:
+`XY` es la tabla de las once posiciones, con el ataque hacia arriba. De ahí salen las dos
+vistas:
 
-- **Ancha (`XYH`):** `XY_BASE` pasada por `gira()`, una rotación de un cuarto de vuelta.
+- **Ancha (`XYH`):** `XY` pasada por `gira()`, una rotación de un cuarto de vuelta.
   Nunca a mano, para no reintroducir el error de lados del Numbers original.
-- **De pie (`XY`):** `XY_BASE` con el ataque sobrescrito (delantero, extremos y
-  mediapuntas). Un campo angosto pide otro reparto que uno tumbado, y ambos están
-  calibrados a ojo sobre capturas. Fijarlos aquí es lo que impide que un ajuste pensado
-  para la vista ancha se cuele en la de pie.
+- **De pie (`XY`):** la tabla tal cual. El ataque está calibrado a ojo sobre una captura
+  de la vista tumbada, y la de pie usa los mismos valores.
 
 Los discos no llevan rótulo: el código de la demarcación es su identificación. El nombre
 largo vive en el `title`, en el `aria-label` y en la cabecera del panel.
