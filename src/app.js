@@ -7,6 +7,13 @@ const ORDER=['DEL','EI','ED','MCOI','MCOD','MC','LI','DFCI','DFCD','LD','POR'];
 /* coordenadas sobre el campo, en % — ataque hacia arriba */
 const XY={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[50,56],
   LI:[12,72],DFCI:[37,77],DFCD:[63,77],LD:[88,72],POR:[50,91]};
+/* el mismo campo girado un cuarto de vuelta para la vista ancha: el ataque pasa de
+   arriba a la derecha. Al girar, el costado izquierdo del equipo queda ARRIBA, así que
+   LI va arriba y LD abajo. No es una elección de estilo: es la misma escena rotada, y
+   cambiarlo a ojo reintroduce el error de lados que ya traía el Numbers original. */
+const gira=([x,y])=>[100-y,x];
+const XYH=Object.fromEntries(Object.entries(XY).map(([k,v])=>[k,gira(v)]));
+const sitio=(v,h)=>`--x:${v[0]}%;--y:${v[1]}%;--xh:${h[0]}%;--yh:${h[1]}%`;
 /* listas que abren los contadores de cabecera */
 const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},
   pte:{titulo:'Pendiente de movimiento',f:x=>x.e==='pte'},
@@ -16,7 +23,7 @@ const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},
 /* quita acentos para que la búsqueda case con o sin tilde */
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 
-let state={g:null,q:'',v:'campo',sort:{k:'n',d:1},panel:null};
+let state={g:null,q:'',v:'campo',sort:{k:'n',d:1},panel:null,banquillo:false};
 
 const $=s=>document.querySelector(s);
 const grupoJ=()=>DATA.find(g=>g.id===state.g).j;
@@ -65,30 +72,46 @@ function renderCampo(){
   const toks=ORDER.map(pos=>{
     const todos=js.filter(x=>x.pos===pos);
     const vis=todos.filter(visible).length;
-    const [x,y]=XY[pos];
     const cls=['tok','f-'+F[pos]];
     if(!todos.length)cls.push('vac');
     if(filt&&!vis)cls.push('off');
     if(filt&&vis)cls.push('hit');
-    return `<button class="${cls.join(' ')}" style="left:${x}%;top:${y}%" data-pos="${pos}"
+    return `<button class="${cls.join(' ')}" style="${sitio(XY[pos],XYH[pos])}" data-pos="${pos}"
       aria-label="${LBL[pos]}, ${todos.length} jugadores">
       <span class="disc"><span class="ini">${SHORT[pos]}</span><span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
       <span class="lab">${LBL[pos]}</span></button>`;
   }).join('');
+  /* el entrenador no ocupa demarcación: vive en el banquillo, plegado en la esquina.
+     La flecha lo despliega; el disco, ya desplegado, abre su ficha como los demás. */
   const t=grupo().tecnico;
-  const ent=t?`<button class="tok tok--ent f-ent" style="left:87%;top:88%" data-ent="1"
-      aria-label="Entrenador ${t.split('—')[0].trim()}">
-      <span class="disc"><span class="ini">ENT</span></span>
-      <span class="lab">${t.split('—')[0].trim()}</span></button>`:'';
+  const nom=t?t.split('—')[0].trim():'';
+  const ent=t?`<div class="banquillo" data-abierto="${state.banquillo?1:0}">
+      <button class="tok tok--ent f-ent" data-ent="1" aria-label="Entrenador ${nom}">
+        <span class="disc"><span class="ini">ENT</span></span>
+        <span class="lab">${nom}</span>
+      </button>
+      <button class="tirador" data-banquillo aria-expanded="${state.banquillo}"
+        aria-label="${state.banquillo?'Ocultar':'Mostrar'} el banquillo">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 8 6 12 10"/></svg>
+      </button></div>`:'';
   const aviso=filt&&!js.some(visible)?`<div class="none hint">${sinResultados()}</div>`:'';
   return `${aviso}<div class="pitchwrap"><div class="pitch">
-    <svg viewBox="0 0 68 105" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="lineas lineas--v" viewBox="0 0 68 105" preserveAspectRatio="none" aria-hidden="true">
       <g fill="none" stroke="var(--turf-line)" stroke-width=".5">
         <rect x="1.5" y="1.5" width="65" height="102"/>
         <line x1="1.5" y1="52.5" x2="66.5" y2="52.5"/>
         <ellipse cx="34" cy="52.5" rx="9.15" ry="9.15"/>
         <rect x="14" y="1.5" width="40" height="16.5"/><rect x="25" y="1.5" width="18" height="5.5"/>
         <rect x="14" y="87" width="40" height="16.5"/><rect x="25" y="98" width="18" height="5.5"/>
+      </g></svg>
+    <svg class="lineas lineas--h" viewBox="0 0 105 68" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="var(--turf-line)" stroke-width=".5">
+        <rect x="1.5" y="1.5" width="102" height="65"/>
+        <line x1="52.5" y1="1.5" x2="52.5" y2="66.5"/>
+        <ellipse cx="52.5" cy="34" rx="9.15" ry="9.15"/>
+        <rect x="87" y="14" width="16.5" height="40"/><rect x="98" y="25" width="5.5" height="18"/>
+        <rect x="1.5" y="14" width="16.5" height="40"/><rect x="1.5" y="25" width="5.5" height="18"/>
       </g></svg>
     ${toks}${ent}</div></div>`;
 }
@@ -119,6 +142,18 @@ function renderLista(){
     </tr>`).join('')}</tbody></table></div>`;
 }
 
+/* coloca la píldora del segmento debajo del botón activo */
+function marcador(sel){
+  const seg=$(sel), b=seg.querySelector('[aria-pressed="true"]');
+  if(!b)return;
+  seg.style.setProperty('--sel-x',b.offsetLeft+'px');
+  seg.style.setProperty('--sel-w',b.offsetWidth+'px');
+  /* la transición se activa después del primer cálculo: si no, al cargar la página la
+     píldora entraría deslizándose desde el borde izquierdo. Con setTimeout y no con
+     requestAnimationFrame, que no corre si la pestaña está en segundo plano. */
+  if(!seg.classList.contains('listo'))setTimeout(()=>seg.classList.add('listo'),0);
+}
+
 function render(){
   document.querySelectorAll('#grupos button').forEach(b=>{
     const g=DATA.find(x=>x.id===b.dataset.g),h=filtrando()?hits(g):g.j.length;
@@ -127,6 +162,7 @@ function render(){
     b.querySelector('.n').classList.toggle('hit',filtrando()&&h>0);
   });
   document.querySelectorAll('#vista button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===state.v));
+  marcador('#grupos');marcador('#vista');
 
   const js=grupoJ(),vis=js.filter(visible);
   $('#tTot').textContent=vis.length;
@@ -143,6 +179,13 @@ $('#view').addEventListener('click',e=>{
   if(gb){state.g=gb.dataset.g;cerrar();render();return;}
   const th=e.target.closest('th button');
   if(th){const k=th.dataset.k;state.sort=state.sort.k===k?{k,d:-state.sort.d}:{k,d:1};render();return;}
+  const tir=e.target.closest('[data-banquillo]');
+  if(tir){ /* sin repintar, para que se vea la transición */
+    state.banquillo=!state.banquillo;
+    tir.closest('.banquillo').dataset.abierto=state.banquillo?'1':'0';
+    tir.setAttribute('aria-expanded',state.banquillo);
+    tir.setAttribute('aria-label',(state.banquillo?'Ocultar':'Mostrar')+' el banquillo');
+    return;}
   const tok=e.target.closest('.tok');
   if(tok){tok.dataset.ent?abrirEnt():abrirPos(tok.dataset.pos);return;}
   const row=e.target.closest('tr[data-id]');
@@ -251,6 +294,9 @@ function pintar(html){
   if(d.hidden){
     origenFoco=document.activeElement;
     d.hidden=false;requestAnimationFrame(()=>{d.classList.add('on');$('#scrim').classList.add('on');});
+    /* en la vista ancha el campo llega hasta debajo del panel y le taparía el
+       delantero; con esta clase el CSS lo encoge para que quepan los dos. */
+    document.body.classList.add('con-panel');
   }
   d.innerHTML=`<span class="grab" aria-hidden="true"></span>`+html;
   d.scrollTop=0;
@@ -260,6 +306,7 @@ function cerrar(){
   state.panel=null;
   const d=$('#drawer');if(d.hidden)return;
   d.classList.remove('on');$('#scrim').classList.remove('on');
+  document.body.classList.remove('con-panel');
   setTimeout(()=>{if(!state.panel)d.hidden=true;},220);
   if(origenFoco&&document.body.contains(origenFoco))origenFoco.focus({preventScroll:true});
   origenFoco=null;
@@ -327,6 +374,8 @@ async function cargar(){
   montarGrupos();
   render();
 }
+
+addEventListener('resize',()=>{marcador('#grupos');marcador('#vista');});
 
 cargar().catch(err=>{
   console.error(err);

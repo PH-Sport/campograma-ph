@@ -34,15 +34,33 @@ abierto. Cada cambio de `state` vuelve a pintar `#view` completo.
 
 ## Vista Campo
 
-Once discos posicionados en porcentajes sobre un contenedor con `aspect-ratio: 3/4`
-(`XY` en `app.js`). El campo se dibuja con un SVG estirado (`preserveAspectRatio="none"`):
-el círculo central es una elipse a propósito.
+Once discos posicionados en porcentajes sobre el campo. **El campo tiene dos
+orientaciones** y se elige por CSS, sin JavaScript reactivo: de pie con el ataque arriba
+(`aspect-ratio: 3/4`) hasta 820 px, y tumbado con el ataque a la derecha
+(`aspect-ratio: 3/2`) a partir de 821 px.
+
+Cada disco lleva las dos posiciones como variables CSS (`--x/--y` y `--xh/--yh`) y el
+media query elige cuál usa. Las horizontales no se escriben a mano: salen de `XY` con
+`gira()`, que es una rotación de un cuarto de vuelta. Hay un SVG de líneas por
+orientación y el CSS enseña el que toca.
+
+Ambos SVG van estirados (`preserveAspectRatio="none"`): en la vista de pie el círculo
+central es una elipse a propósito; en la tumbada el viewBox ya casi cuadra con la caja,
+así que sale casi redondo.
+
+Con el panel abierto en vista ancha el campo se encoge para no quedar debajo de él
+(`body.con-panel`); si no, el panel taparía el delantero.
 
 Los discos representan **demarcaciones, no jugadores**. Al pulsar uno se abre el panel
 con su lista; desde ahí se entra a la ficha individual, con vuelta atrás.
 
-El entrenador es un disco aparte en la esquina inferior derecha —el banquillo—, con
-borde discontinuo y color neutro para que no compita con las once demarcaciones.
+El entrenador vive en el banquillo: plegado en la esquina inferior derecha del campo,
+detrás de una flecha que lo despliega hacia la izquierda. Plegado no compite con las once
+demarcaciones; desplegado tiene el mismo tamaño de disco que ellas, con borde discontinuo
+y color neutro, porque no ocupa demarcación pero tampoco es un accesorio.
+
+Se despliega hacia la izquierda y no hacia arriba a propósito: hacia arriba se solapaba
+con el lateral derecho en las pantallas estrechas.
 
 ## Vista Lista
 
