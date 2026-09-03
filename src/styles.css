@@ -179,8 +179,11 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 /* ---------- banquillo ---------- */
 /* El entrenador no ocupa demarcación: vive plegado en la esquina y lo saca la flecha.
    Ocupa sitio siempre (no display:none) para que al desplegarse nada dé un salto. */
-.banquillo{display:flex;align-items:flex-start;gap:6px;
-  width:max-content;margin:6px 2px 0 auto}
+.banquillo{position:relative;z-index:3;display:flex;align-items:flex-start;gap:6px;
+  width:max-content;margin:0 10px 0 auto}
+/* la flecha va montada sobre la línea de banda, mitad dentro y mitad fuera, como el
+   asa de un cajón. La burbuja se queda por debajo del campo, sin invadirlo. */
+.tirador{margin-top:-15px}
 .tok--ent{position:static;transform:none;
   transition:opacity .2s ease,transform .2s ease,visibility .2s}
 .tok--ent:hover{transform:translateY(-2px)}

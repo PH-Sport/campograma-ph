@@ -4,15 +4,21 @@ const LBL={POR:'Portero',DFCI:'Central izq.',DFCD:'Central der.',LI:'Lateral izq
   MC:'Mediocentro',MCOI:'Mediapunta izq.',MCOD:'Mediapunta der.',EI:'Extremo izq.',ED:'Extremo der.',DEL:'Delantero'};
 const SHORT={POR:'POR',DFCI:'DFC-I',DFCD:'DFC-D',LI:'LI',LD:'LD',MC:'MC',MCOI:'MCO-I',MCOD:'MCO-D',EI:'EI',ED:'ED',DEL:'DEL'};
 const ORDER=['DEL','EI','ED','MCOI','MCOD','MC','LI','DFCI','DFCD','LD','POR'];
-/* coordenadas sobre el campo, en % — ataque hacia arriba */
-const XY={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[50,56],
+/* posiciones del once sobre el campo, en % — ataque hacia arriba. Esta es la tabla
+   canónica: de aquí sale todo lo demás. */
+const XY_BASE={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[50,56],
   LI:[12,72],DFCI:[37,77],DFCD:[63,77],LD:[88,72],POR:[50,91]};
-/* el mismo campo girado un cuarto de vuelta para la vista ancha: el ataque pasa de
-   arriba a la derecha. Al girar, el costado izquierdo del equipo queda ARRIBA, así que
-   LI va arriba y LD abajo. No es una elección de estilo: es la misma escena rotada, y
-   cambiarlo a ojo reintroduce el error de lados que ya traía el Numbers original. */
+/* la vista ancha es la base girada un cuarto de vuelta: el ataque pasa de arriba a la
+   derecha. Al girar, el costado izquierdo del equipo queda ARRIBA, así que LI va arriba
+   y LD abajo. No es una elección de estilo: es la misma escena rotada, y colocarla a ojo
+   reintroduce el error de lados que ya traía el Numbers original. */
 const gira=([x,y])=>[100-y,x];
-const XYH=Object.fromEntries(Object.entries(XY).map(([k,v])=>[k,gira(v)]));
+const XYH=Object.fromEntries(Object.entries(XY_BASE).map(([k,v])=>[k,gira(v)]));
+/* la vista de pie afina cuatro posiciones. En una pantalla estrecha el campo es angosto
+   y las etiquetas de dos líneas se pisan: medido, los extremos invadían 13px a las
+   mediapuntas y estas 8px al mediocentro. Los extremos suben y las mediapuntas se abren.
+   Solo afecta a la vista de pie; la ancha sigue saliendo de XY_BASE sin tocar. */
+const XY={...XY_BASE,EI:[16,21],ED:[84,21],MCOI:[26,41],MCOD:[74,41]};
 const sitio=(v,h)=>`--x:${v[0]}%;--y:${v[1]}%;--xh:${h[0]}%;--yh:${h[1]}%`;
 /* listas que abren los contadores de cabecera */
 const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},

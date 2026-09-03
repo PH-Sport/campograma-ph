@@ -40,9 +40,17 @@ orientaciones** y se elige por CSS, sin JavaScript reactivo: de pie con el ataqu
 (`aspect-ratio: 3/2`) a partir de 821 px.
 
 Cada disco lleva las dos posiciones como variables CSS (`--x/--y` y `--xh/--yh`) y el
-media query elige cuál usa. Las horizontales no se escriben a mano: salen de `XY` con
-`gira()`, que es una rotación de un cuarto de vuelta. Hay un SVG de líneas por
-orientación y el CSS enseña el que toca.
+media query elige cuál usa. Hay un SVG de líneas por orientación y el CSS enseña el que
+toca.
+
+`XY_BASE` es la tabla canónica de las once posiciones. De ahí salen las dos vistas:
+
+- **Ancha (`XYH`):** `XY_BASE` pasada por `gira()`, una rotación de un cuarto de vuelta.
+  Nunca a mano, para no reintroducir el error de lados del Numbers original.
+- **De pie (`XY`):** `XY_BASE` con cuatro retoques de aire. En una pantalla estrecha el
+  campo es angosto y las etiquetas de dos líneas se pisan, así que los extremos suben y
+  las mediapuntas se abren. Es ajuste de presentación, no de formación, y por eso no
+  toca la vista ancha.
 
 Ambos SVG van estirados (`preserveAspectRatio="none"`): en la vista de pie el círculo
 central es una elipse a propósito; en la tumbada el viewBox ya casi cuadra con la caja,
