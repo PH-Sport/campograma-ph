@@ -1,0 +1,14 @@
+{
+  "name": "campograma-ph",
+  "version": "0.1.0",
+  "description": "Campograma interno de la cartera de jugadores de PH Sport",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "validar": "node scripts/validar-datos.mjs",
+    "check": "npm run validar && npm run build"
+  },
+  "engines": { "node": ">=20" }
+}

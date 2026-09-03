@@ -1,0 +1,1375 @@
+{
+  "$schema": "docs/architecture/modelo-datos.md",
+  "actualizado": "2026-09-03",
+  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03)",
+  "categorias": [
+    {
+      "id": "elite",
+      "nombre": "1ª / 2ªA / Internacional",
+      "corto": "1ª · 2ªA · Intl",
+      "tecnico": "Thomas Christiansen — Selección de Panamá"
+    },
+    {
+      "id": "rfef",
+      "nombre": "1ª RFEF / 2ª RFEF / 3ª RFEF",
+      "corto": "RFEF"
+    },
+    {
+      "id": "cantera",
+      "nombre": "Cantera",
+      "corto": "Cantera"
+    }
+  ],
+  "jugadores": [
+    {
+      "nombre": "Dani Rebollo",
+      "anio": 1999,
+      "club": "AVS",
+      "demarcacion": "POR",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "David Nunes",
+      "anio": 2004,
+      "club": "Académ. Viseu",
+      "demarcacion": "DFCD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Mati Barzic",
+      "anio": 2004,
+      "club": "Elche",
+      "demarcacion": "DFCD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Gonzalo Rguez.",
+      "anio": 2005,
+      "club": "Atco. La Paz",
+      "demarcacion": "DFCD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Javi Hdez.",
+      "anio": 1998,
+      "club": "Leganés",
+      "demarcacion": "DFCI",
+      "categoria": "elite",
+      "situacion": "pte",
+      "cesionA": null
+    },
+    {
+      "nombre": "Kevin Prieto",
+      "anio": 2003,
+      "club": "Casa Pía",
+      "demarcacion": "LD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Billy Gee",
+      "anio": 2005,
+      "club": "Zelec. Pancevo",
+      "demarcacion": "LD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "C. Manrique",
+      "anio": 1998,
+      "club": "Panetolikos",
+      "demarcacion": "LI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Francisco Días",
+      "anio": 2002,
+      "club": "V. Guimarães",
+      "demarcacion": "LI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Víctor García",
+      "anio": 1994,
+      "club": "Ibiza",
+      "demarcacion": "LI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Dani Muñoz",
+      "anio": 2006,
+      "club": "Iraklis",
+      "demarcacion": "LI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Juan Lapasta",
+      "anio": 2012,
+      "club": "Boston River",
+      "demarcacion": "LI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Carlos Guirao",
+      "anio": 2003,
+      "club": "Leganés",
+      "demarcacion": "MC",
+      "categoria": "elite",
+      "situacion": "ces",
+      "cesionA": "Eldense"
+    },
+    {
+      "nombre": "Roberto Olabe",
+      "anio": 1996,
+      "club": "Turan T.",
+      "demarcacion": "MC",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Guilherme Lopes",
+      "anio": 2010,
+      "club": "Río Ave",
+      "demarcacion": "MC",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Damián Cáceres",
+      "anio": 2003,
+      "club": "Córdoba",
+      "demarcacion": "MC",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Alberto del Moral",
+      "anio": 2000,
+      "club": "Hajduk",
+      "demarcacion": "MC",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "A. Burlamaqui",
+      "anio": 2002,
+      "club": "A. Lima",
+      "demarcacion": "MCOD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Dani Requena",
+      "anio": 2004,
+      "club": "Villarreal",
+      "demarcacion": "MCOD",
+      "categoria": "elite",
+      "situacion": "ces",
+      "cesionA": "Levante"
+    },
+    {
+      "nombre": "Juanjo",
+      "anio": 2000,
+      "club": "Tenerife",
+      "demarcacion": "MCOD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Thiago Leal",
+      "anio": 2006,
+      "club": "Torreense",
+      "demarcacion": "MCOD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Tomás Mendes",
+      "anio": 2007,
+      "club": "Torreense",
+      "demarcacion": "MCOD",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Lawson S.",
+      "anio": 2001,
+      "club": "Sin equipo",
+      "demarcacion": "MCOI",
+      "categoria": "elite",
+      "situacion": "pte",
+      "cesionA": null
+    },
+    {
+      "nombre": "Jannick Buyla",
+      "anio": 1998,
+      "club": "Évora L3",
+      "demarcacion": "MCOI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "João Rgues.",
+      "anio": 2007,
+      "club": "Sporting Lisb.",
+      "demarcacion": "MCOI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Iker Luque",
+      "anio": 2005,
+      "club": "Atm. B",
+      "demarcacion": "ED",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Juan Cruz",
+      "anio": 2000,
+      "club": "Leganés",
+      "demarcacion": "ED",
+      "categoria": "elite",
+      "situacion": "ces",
+      "cesionA": "Málaga"
+    },
+    {
+      "nombre": "Owen Nmeka",
+      "anio": 2009,
+      "club": "Granada",
+      "demarcacion": "ED",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Luis Quintero",
+      "anio": 2004,
+      "club": "Torreense",
+      "demarcacion": "ED",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Kauã do Vale",
+      "anio": 2009,
+      "club": "Santos",
+      "demarcacion": "ED",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Dimitar Danev",
+      "anio": 2006,
+      "club": "Vardar",
+      "demarcacion": "EI",
+      "categoria": "elite",
+      "situacion": "pte",
+      "cesionA": null
+    },
+    {
+      "nombre": "Salim El Jebari",
+      "anio": 2004,
+      "club": "Córdoba",
+      "demarcacion": "EI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Abdoulaye Keyta",
+      "anio": 2002,
+      "club": "AVS",
+      "demarcacion": "EI",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Abdellah Raihani",
+      "anio": 2004,
+      "club": "Muaither",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Jordi Ferrer",
+      "anio": 1999,
+      "club": "Atco. La Paz",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Jorge Delgado",
+      "anio": 2002,
+      "club": "Cult. Leonesa",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "João Vogt",
+      "anio": 2009,
+      "club": "Zúrich",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Martim Bernardo",
+      "anio": 2009,
+      "club": "Torreense",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Sebastián Vidal",
+      "anio": 2009,
+      "club": "Río Ave",
+      "demarcacion": "DEL",
+      "categoria": "elite",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Álex Domínguez",
+      "anio": 1998,
+      "club": "Ponferradina",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Álex Gil",
+      "anio": 2007,
+      "club": "Mérida",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Álvaro Várez",
+      "anio": 2007,
+      "club": "Alcorcón B",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Hugo Ríos",
+      "anio": 2003,
+      "club": "Depor Fabril",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Manu García",
+      "anio": 2005,
+      "club": "Murcia B",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Eduard Mohedano",
+      "anio": 2004,
+      "club": "LP C",
+      "demarcacion": "POR",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Aimar",
+      "anio": 2007,
+      "club": "Real Madrid",
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Zeno Stassin",
+      "anio": 2007,
+      "club": "Huesca",
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Alberto C. «Tito»",
+      "anio": 2005,
+      "club": "Tenerife B",
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Hugo García",
+      "anio": 2007,
+      "club": "Getafe B",
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Adrián Gómez",
+      "anio": 2002,
+      "club": null,
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "F. Tafalla",
+      "anio": 2004,
+      "club": "Mallorca B",
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Hugo Buyla",
+      "anio": 2005,
+      "club": null,
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Yeray Izquierdo",
+      "anio": 2003,
+      "club": null,
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Noah Stassin",
+      "anio": 2004,
+      "club": null,
+      "demarcacion": "DFCD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Adri Pérez",
+      "anio": 2003,
+      "club": "Conquense",
+      "demarcacion": "DFCI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Lucas Macazaga",
+      "anio": 2006,
+      "club": "Leganés B",
+      "demarcacion": "LD",
+      "categoria": "rfef",
+      "situacion": "ces",
+      "cesionA": "Ponferradina"
+    },
+    {
+      "nombre": "Santi Pallarés",
+      "anio": 2005,
+      "club": "LP C",
+      "demarcacion": "LD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "David Carreira",
+      "anio": 2005,
+      "club": "Montañeros",
+      "demarcacion": "LD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Á. Losfablos",
+      "anio": 2007,
+      "club": "Huesca B",
+      "demarcacion": "LD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "R. Alarcón",
+      "anio": 2005,
+      "club": "Antequera",
+      "demarcacion": "LD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Agus Moreno",
+      "anio": 2005,
+      "club": "Getafe B",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Pere Haro",
+      "anio": 2004,
+      "club": "Lugo",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Diego Robles",
+      "anio": 2004,
+      "club": "Alcalá",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Iker Vidal",
+      "anio": 2004,
+      "club": "Depor Fabril",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Eneko O.",
+      "anio": 2003,
+      "club": "Villarreal B",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Víctor Villote",
+      "anio": 2004,
+      "club": "Las Palmas",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Izan Muñoz",
+      "anio": 2007,
+      "club": "Atco. Paso",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Adán Benítez",
+      "anio": 2006,
+      "club": "R. Huelva",
+      "demarcacion": "LI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "T. Helguera",
+      "anio": 2006,
+      "club": "Braga",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": "ces",
+      "cesionA": "Atm. B"
+    },
+    {
+      "nombre": "Carlos Belda",
+      "anio": 2007,
+      "club": "Leganés B",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Asier Carmona",
+      "anio": 2007,
+      "club": null,
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Alberto Vela",
+      "anio": 2004,
+      "club": "R. Huelva",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Pablo P.",
+      "anio": 2006,
+      "club": "Villarreal B",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Óscar López",
+      "anio": 2006,
+      "club": "Getafe B",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "David Fdez.",
+      "anio": 2007,
+      "club": "Atm. C",
+      "demarcacion": "MC",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Héctor Peña",
+      "anio": 2002,
+      "club": "RC Portuense",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Mauro Valeiro",
+      "anio": 2009,
+      "club": "Depor Fabril",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Adrián Martín",
+      "anio": 2006,
+      "club": "Getafe B",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "B. Billups",
+      "anio": 2005,
+      "club": "Eldense",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": "ces",
+      "cesionA": "Cartagena"
+    },
+    {
+      "nombre": "Jordi Ortega",
+      "anio": 2003,
+      "club": "Olot",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "M. de Pedro",
+      "anio": 2006,
+      "club": "Manresa",
+      "demarcacion": "MCOD",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Txus Alba",
+      "anio": 2003,
+      "club": null,
+      "demarcacion": "MCOI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "M. Guilavert",
+      "anio": 2005,
+      "club": "Mestalla",
+      "demarcacion": "MCOI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Manzanara",
+      "anio": 1996,
+      "club": "Alcorcón",
+      "demarcacion": "MCOI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "M. Talavera",
+      "anio": 2006,
+      "club": "Portuense",
+      "demarcacion": "MCOI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Omar O.",
+      "anio": 2000,
+      "club": "Alcorcón",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Soldevilla",
+      "anio": 2001,
+      "club": "Hércules",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Israel Motos",
+      "anio": 2007,
+      "club": "Getafe B",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Kwane Sosu",
+      "anio": 2006,
+      "club": "Betis B",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "José Rey",
+      "anio": 2007,
+      "club": "Depor Fabril",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Fran Rivera",
+      "anio": 2007,
+      "club": "Sabadell B",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Marc Bonilla",
+      "anio": 2005,
+      "club": "Damm",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Nacho Plaza",
+      "anio": 2006,
+      "club": "Huesca B",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Nico Exp.",
+      "anio": 2006,
+      "club": "Badalona",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Lámina Ndir",
+      "anio": 2007,
+      "club": "Constancia",
+      "demarcacion": "ED",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Youssef",
+      "anio": 2006,
+      "club": "Granada C",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Ojgen Teofilovic",
+      "anio": 2006,
+      "club": "Lugo",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": "ces",
+      "cesionA": "Compostela"
+    },
+    {
+      "nombre": "Rayan Zinebi",
+      "anio": 2007,
+      "club": "Granada",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": "ces",
+      "cesionA": "Real Madrid"
+    },
+    {
+      "nombre": "Iker Bachiller",
+      "anio": 2007,
+      "club": "Leganés B",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Destiny",
+      "anio": 2003,
+      "club": "Antequera",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Raúl Mtnez.",
+      "anio": 2006,
+      "club": "Murcia B",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Álex de Weerd",
+      "anio": 2007,
+      "club": null,
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "H. Tejada",
+      "anio": 2005,
+      "club": "Cornellà",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Mateo Scianc.",
+      "anio": 2006,
+      "club": "Ilicitano",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Jorge Franco",
+      "anio": 2007,
+      "club": "Zaragoza B",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Andrei Lupu",
+      "anio": 1998,
+      "club": "Portuense",
+      "demarcacion": "DEL",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Razvan",
+      "anio": 2008,
+      "club": "Juv. Leganés",
+      "demarcacion": "POR",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Isaías Abuabara",
+      "anio": 2010,
+      "club": "Juv. Celta",
+      "demarcacion": "POR",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Manu López",
+      "anio": 2011,
+      "club": "Cad. Sevilla",
+      "demarcacion": "POR",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "A. Barbera",
+      "anio": 2008,
+      "club": "Badalona",
+      "demarcacion": "POR",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Carlos Núñez",
+      "anio": 2009,
+      "club": "Juv. Atlético",
+      "demarcacion": "DFCD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Hugo Fdez.",
+      "anio": 2011,
+      "club": "Cad. Real Madrid",
+      "demarcacion": "DFCD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Liam Fdez.",
+      "anio": 2009,
+      "club": "Juv. Sporting",
+      "demarcacion": "DFCD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Marcos Ortega",
+      "anio": 2009,
+      "club": "Zaragoza",
+      "demarcacion": "DFCD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "J. Palacios",
+      "anio": 2009,
+      "club": "Juv. Real Madrid",
+      "demarcacion": "DFCI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Tomás Méndez",
+      "anio": 2008,
+      "club": "Juv. Sevilla",
+      "demarcacion": "DFCI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "H. Velón",
+      "anio": 2008,
+      "club": "Juv. Leganés",
+      "demarcacion": "LD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Miguel",
+      "anio": 2009,
+      "club": "Juv. Getafe",
+      "demarcacion": "LD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Lucas Palma",
+      "anio": 2008,
+      "club": "Juv. Cádiz",
+      "demarcacion": "LD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Leon Viera",
+      "anio": 2010,
+      "club": "Juv. Extremadura",
+      "demarcacion": "LD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Ismael Delmas",
+      "anio": 2009,
+      "club": "Juv. Rayo",
+      "demarcacion": "LI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Álvaro Guti",
+      "anio": 2009,
+      "club": "Juv. Getafe",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "A. Córcova",
+      "anio": 2008,
+      "club": "Juv. Real Madrid",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "G. Mascali",
+      "anio": 2009,
+      "club": "Juv. Torrejón",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Manasés M.",
+      "anio": 2008,
+      "club": "Juv. Trival",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "F. Iglesias",
+      "anio": 2008,
+      "club": "Juv. Depor",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Eneas",
+      "anio": 2008,
+      "club": "Juv. Mérida",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Raúl Picazo",
+      "anio": 2008,
+      "club": "Juv. Albacete",
+      "demarcacion": "MC",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Albert Nuet",
+      "anio": 2009,
+      "club": "Juv. Girona",
+      "demarcacion": "MCOD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Marcos Méndez",
+      "anio": 2010,
+      "club": "Juv. Rayo",
+      "demarcacion": "MCOD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "J. Florek",
+      "anio": 2008,
+      "club": "Juv. Depor",
+      "demarcacion": "MCOD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Jesús",
+      "anio": 2010,
+      "club": "Juv. Almería",
+      "demarcacion": "MCOD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Juan Gavilán",
+      "anio": 2009,
+      "club": "Juv. Cádiz",
+      "demarcacion": "MCOD",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "B. Mendoza",
+      "anio": 2009,
+      "club": "Juv. Barcelona",
+      "demarcacion": "MCOI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "A. de Frutos",
+      "anio": 2009,
+      "club": "Juv. Getafe",
+      "demarcacion": "ED",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "B. Villalba",
+      "anio": 2009,
+      "club": "Juv. Damm",
+      "demarcacion": "ED",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Javi Benítez",
+      "anio": 2008,
+      "club": "Juv. Algeciras",
+      "demarcacion": "ED",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Ángel Rguez.",
+      "anio": 2009,
+      "club": "Extremadura",
+      "demarcacion": "ED",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Víc. Santiago",
+      "anio": 2011,
+      "club": "Cad. Barcelona",
+      "demarcacion": "EI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Pablo Ibáñez",
+      "anio": 2009,
+      "club": "Juv. Real Madrid",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Unai Ordóñez",
+      "anio": 2010,
+      "club": "Juv. Real Madrid",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Wilson",
+      "anio": 2009,
+      "club": "Juv. Getafe",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Adri Vidican",
+      "anio": 2009,
+      "club": "Juv. Betis",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Emanuel Yeboah",
+      "anio": 2008,
+      "club": null,
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Saúl Glez.",
+      "anio": 2011,
+      "club": "Utrera",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Babacar W.",
+      "anio": 2008,
+      "club": "Villarreal",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": "pte",
+      "cesionA": null
+    },
+    {
+      "nombre": "Álvaro Caso",
+      "anio": 2009,
+      "club": "Huesca",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "JL Mejías",
+      "anio": 2010,
+      "club": "Juv. Betis",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Dani Hdez.",
+      "anio": 2013,
+      "club": "Inf. Girona",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    },
+    {
+      "nombre": "Pelayo M.",
+      "anio": 2010,
+      "club": "Juv. Real Sociedad",
+      "demarcacion": "DEL",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null
+    }
+  ]
+}

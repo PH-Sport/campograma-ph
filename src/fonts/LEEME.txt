@@ -1,0 +1,11 @@
+Söhne (Klim Type Foundry) — requiere licencia webfont a nombre de PH Sport.
+
+Deja aquí los .woff2 con estos nombres exactos y la página los usa sola:
+
+  soehne-buch.woff2        -> Söhne Buch (400)
+  soehne-kraftig.woff2     -> Söhne Kräftig (500)
+  soehne-halbfett.woff2    -> Söhne Halbfett (600)
+  soehne-mono-buch.woff2   -> Söhne Mono Buch (400)
+
+Si no están, el navegador cae a Geist. Los 404 en consola son esperados
+hasta que se compre la licencia; no son un fallo.

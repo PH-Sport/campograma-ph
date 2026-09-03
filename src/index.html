@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Cartera de jugadores de PH Sport por demarcacion y categoria. Uso interno.">
+<meta name="theme-color" content="#F4F6F3">
+<title>Campograma PH Sport</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="brand">PH Sport &middot; Cartera de jugadores</p>
+      <h1>Campograma</h1>
+    </div>
+    <div class="tally">
+      <div><b id="tTot">0</b><span>Jugadores</span></div>
+      <div><b id="tCes">0</b><span>En cesión</span></div>
+      <div><b id="tPte">0</b><span>Pte. mov.</span></div>
+      <div><b id="tGap">0</b><span>Sin club</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <div class="seg" id="grupos" role="group" aria-label="Categoría"></div>
+    <div class="search" id="search">
+      <button class="searchbtn" id="qOpen" aria-label="Buscar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      </button>
+      <input id="q" type="search" placeholder="Buscar jugador o club…" autocomplete="off" aria-label="Buscar">
+      <button class="clr" id="qc" aria-label="Limpiar búsqueda" hidden>×</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="seg" id="vista" role="group" aria-label="Vista">
+      <button data-v="campo" aria-pressed="true">Campo</button>
+      <button data-v="lista" aria-pressed="false">Lista</button>
+    </div>
+  </div>
+
+  <div id="view"></div>
+
+  <div class="legend">
+    <span><i class="f-por"></i>Portero</span>
+    <span><i class="f-def"></i>Defensa</span>
+    <span><i class="f-med"></i>Medio</span>
+    <span><i class="f-ata"></i>Ataque</span>
+    <span><i style="color:var(--sig-ces)"></i>En cesión</span>
+    <span><i style="color:var(--sig-pte)"></i>Pendiente de movimiento</span>
+  </div>
+
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="false" aria-label="Detalle" hidden></aside>
+<script src="./app.js"></script>
+</body>
+</html>
