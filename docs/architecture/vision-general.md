@@ -47,9 +47,10 @@ toca.
 
 - **Ancha (`XYH`):** `XY_BASE` pasada por `gira()`, una rotación de un cuarto de vuelta.
   Nunca a mano, para no reintroducir el error de lados del Numbers original.
-- **De pie (`XY`):** `XY_BASE` con cuatro retoques de aire —los extremos suben, las
-  mediapuntas se abren—, porque el campo es angosto en vertical. Es ajuste de
-  presentación, no de formación, y por eso no toca la vista ancha.
+- **De pie (`XY`):** `XY_BASE` con el ataque sobrescrito (delantero, extremos y
+  mediapuntas). Un campo angosto pide otro reparto que uno tumbado, y ambos están
+  calibrados a ojo sobre capturas. Fijarlos aquí es lo que impide que un ajuste pensado
+  para la vista ancha se cuele en la de pie.
 
 Los discos no llevan rótulo: el código de la demarcación es su identificación. El nombre
 largo vive en el `title`, en el `aria-label` y en la cabecera del panel.
@@ -70,10 +71,11 @@ sin JavaScript para plegarlo. Se montó dentro del campo tres veces y ninguna fu
 el entrenador no ocupa demarcación, y cualquier cosa puesta sobre el césped se lee como
 un jugador más.
 
-En la vista ancha el campo se sale del `.wrap` con márgenes negativos para ocupar el 80 %
-del ancho de la **ventana**, con `max-height` para que siga cabiendo en pantalla; en un
-portátil bajo manda el alto y el campo sale más panorámico que un campo real, cosa que el
-`preserveAspectRatio="none"` absorbe sin romper nada.
+En la vista ancha el campo se sale del `.wrap` con márgenes negativos para ocupar el 60 %
+del ancho de la **ventana**, con `max-height` para que siga cabiendo en pantalla. En un
+portátil bajo manda el alto y el campo sale un poco más panorámico que uno real (1,57
+frente a 1,5 en 1440x800), cosa que el `preserveAspectRatio="none"` absorbe sin romper
+nada.
 
 ## Vista Lista
 

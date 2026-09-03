@@ -4,9 +4,10 @@ const LBL={POR:'Portero',DFCI:'Central izq.',DFCD:'Central der.',LI:'Lateral izq
   MC:'Mediocentro',MCOI:'Mediapunta izq.',MCOD:'Mediapunta der.',EI:'Extremo izq.',ED:'Extremo der.',DEL:'Delantero'};
 const SHORT={POR:'POR',DFCI:'DFC-I',DFCD:'DFC-D',LI:'LI',LD:'LD',MC:'MC',MCOI:'MCO-I',MCOD:'MCO-D',EI:'EI',ED:'ED',DEL:'DEL'};
 const ORDER=['DEL','EI','ED','MCOI','MCOD','MC','LI','DFCI','DFCD','LD','POR'];
-/* posiciones del once sobre el campo, en % — ataque hacia arriba. Esta es la tabla
-   canónica: de aquí sale todo lo demás. */
-const XY_BASE={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[50,56],
+/* posiciones del once sobre el campo, en % — ataque hacia arriba. Es la referencia de la
+   que sale la vista tumbada; los cinco valores de ataque están calibrados mirando ESA
+   vista, que es donde Mario los colocó. La de pie los sobrescribe más abajo. */
+const XY_BASE={DEL:[50,13],EI:[19,21],ED:[81,21],MCOI:[22,48],MCOD:[77,48],MC:[50,56],
   LI:[12,72],DFCI:[37,77],DFCD:[63,77],LD:[88,72],POR:[50,91]};
 /* la vista ancha es la base girada un cuarto de vuelta: el ataque pasa de arriba a la
    derecha. Al girar, el costado izquierdo del equipo queda ARRIBA, así que LI va arriba
@@ -14,11 +15,11 @@ const XY_BASE={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[5
    reintroduce el error de lados que ya traía el Numbers original. */
 const gira=([x,y])=>[100-y,x];
 const XYH=Object.fromEntries(Object.entries(XY_BASE).map(([k,v])=>[k,gira(v)]));
-/* la vista de pie afina cuatro posiciones: los extremos suben y las mediapuntas se
-   abren. Nació para que no se pisaran las etiquetas de dos líneas, que ya no existen; se
-   mantiene porque en un campo estrecho ese aire se agradece igual. Es ajuste de
-   presentación: la vista ancha sigue saliendo de XY_BASE sin tocar. */
-const XY={...XY_BASE,EI:[16,21],ED:[84,21],MCOI:[26,41],MCOD:[74,41]};
+/* la vista de pie lleva sus propios valores en el ataque: en un campo estrecho conviene
+   otro reparto que en uno tumbado, y son los que ya estaban afinados. Fijarlos aquí es
+   además lo que impide que un retoque pensado para la vista ancha se cuele en la de pie
+   por la puerta de atrás. */
+const XY={...XY_BASE,DEL:[50,11],EI:[16,21],ED:[84,21],MCOI:[26,41],MCOD:[74,41]};
 const sitio=(v,h)=>`--x:${v[0]}%;--y:${v[1]}%;--xh:${h[0]}%;--yh:${h[1]}%`;
 /* listas que abren los contadores de cabecera */
 const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},

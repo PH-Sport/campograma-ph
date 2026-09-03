@@ -163,13 +163,13 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 /* vista ancha: el campo se tumba y ataca hacia la derecha. Solo cambia la orientación;
    quién está en cada sitio lo decide XYH en app.js, que es XY girado. */
 @media (min-width:821px){
-  /* el campo ocupa el 80 % del ANCHO DE LA VENTANA, no del contenedor: se sale del
-     .wrap por los dos lados con márgenes negativos. Como el .wrap está centrado, los
-     márgenes simétricos lo dejan centrado en la ventana. */
+  /* el campo ocupa el 60 % del ANCHO DE LA VENTANA, no del contenedor: se sale del
+     .wrap por los dos lados con márgenes negativos (la mitad de 60 es 30vw). Como el
+     .wrap está centrado, los márgenes simétricos lo dejan centrado en la ventana. */
   .pitchwrap{max-width:none;
-    margin-left:calc(50% - 40vw);margin-right:calc(50% - 40vw);
+    margin-left:calc(50% - 30vw);margin-right:calc(50% - 30vw);
     transition:margin-right .22s ease}
-  body.con-panel .pitchwrap{margin-right:calc(50% - 40vw + min(370px,92vw) + 24px)}
+  body.con-panel .pitchwrap{margin-right:calc(50% - 30vw + min(370px,92vw) + 24px)}
   /* 80 % de ancho, pero sin pasarse de alto: en un portátil de 1440x800 el campo salía
      de 896px y había que hacer scroll para ver al delantero. Con el tope, manda el que
      se quede corto de los dos, y el aspect-ratio encoge el ancho a la vez. */
