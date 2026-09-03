@@ -47,10 +47,12 @@ toca.
 
 - **Ancha (`XYH`):** `XY_BASE` pasada por `gira()`, una rotación de un cuarto de vuelta.
   Nunca a mano, para no reintroducir el error de lados del Numbers original.
-- **De pie (`XY`):** `XY_BASE` con cuatro retoques de aire. En una pantalla estrecha el
-  campo es angosto y las etiquetas de dos líneas se pisan, así que los extremos suben y
-  las mediapuntas se abren. Es ajuste de presentación, no de formación, y por eso no
-  toca la vista ancha.
+- **De pie (`XY`):** `XY_BASE` con cuatro retoques de aire —los extremos suben, las
+  mediapuntas se abren—, porque el campo es angosto en vertical. Es ajuste de
+  presentación, no de formación, y por eso no toca la vista ancha.
+
+Los discos no llevan rótulo: el código de la demarcación es su identificación. El nombre
+largo vive en el `title`, en el `aria-label` y en la cabecera del panel.
 
 Ambos SVG van estirados (`preserveAspectRatio="none"`): en la vista de pie el círculo
 central es una elipse a propósito; en la tumbada el viewBox ya casi cuadra con la caja,

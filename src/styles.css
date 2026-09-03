@@ -137,7 +137,7 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 
 .tok{position:absolute;left:var(--x);top:var(--y);
   transform:translate(-50%,-50%);display:flex;flex-direction:column;
-  align-items:center;gap:5px;width:clamp(74px,19vw,104px);z-index:2;
+  align-items:center;gap:5px;z-index:2;
   transition:opacity .16s,transform .12s}
 .tok:hover{transform:translate(-50%,-50%) scale(1.045)}
 .tok:active{transform:translate(-50%,-50%) scale(.99)}
@@ -152,6 +152,8 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
   box-shadow:0 0 0 2px var(--ground)}
 .cnt b{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10.5px;color:var(--panel);
   font-variant-numeric:tabular-nums;line-height:1}
+/* solo lo usa el banquillo: ahí el rótulo es el nombre del entrenador, no una etiqueta
+   descriptiva; sin él, "ENT" no diría quién es. */
 .lab{font-size:11px;font-weight:500;color:var(--ink-2);text-align:center;line-height:1.2;
   text-wrap:balance}
 .tok.vac .disc{border-style:dashed;opacity:.65}
@@ -173,7 +175,7 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
   .lineas--v{display:none}
   .lineas--h{display:block}
   .pitch::after{background:repeating-linear-gradient(90deg,var(--turf-raya) 0 8.33%,transparent 8.33% 16.66%)}
-  .tok{left:var(--xh);top:var(--yh);width:clamp(74px,11vw,104px)}
+  .tok{left:var(--xh);top:var(--yh)}
 }
 
 /* ---------- banquillo ---------- */

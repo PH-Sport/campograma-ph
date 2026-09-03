@@ -14,10 +14,10 @@ const XY_BASE={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[5
    reintroduce el error de lados que ya traía el Numbers original. */
 const gira=([x,y])=>[100-y,x];
 const XYH=Object.fromEntries(Object.entries(XY_BASE).map(([k,v])=>[k,gira(v)]));
-/* la vista de pie afina cuatro posiciones. En una pantalla estrecha el campo es angosto
-   y las etiquetas de dos líneas se pisan: medido, los extremos invadían 13px a las
-   mediapuntas y estas 8px al mediocentro. Los extremos suben y las mediapuntas se abren.
-   Solo afecta a la vista de pie; la ancha sigue saliendo de XY_BASE sin tocar. */
+/* la vista de pie afina cuatro posiciones: los extremos suben y las mediapuntas se
+   abren. Nació para que no se pisaran las etiquetas de dos líneas, que ya no existen; se
+   mantiene porque en un campo estrecho ese aire se agradece igual. Es ajuste de
+   presentación: la vista ancha sigue saliendo de XY_BASE sin tocar. */
 const XY={...XY_BASE,EI:[16,21],ED:[84,21],MCOI:[26,41],MCOD:[74,41]};
 const sitio=(v,h)=>`--x:${v[0]}%;--y:${v[1]}%;--xh:${h[0]}%;--yh:${h[1]}%`;
 /* listas que abren los contadores de cabecera */
@@ -82,10 +82,12 @@ function renderCampo(){
     if(!todos.length)cls.push('vac');
     if(filt&&!vis)cls.push('off');
     if(filt&&vis)cls.push('hit');
+    /* el disco va sin rótulo: el código ya identifica la demarcación. El nombre largo
+       sigue estando en el title, en el aria-label y en la cabecera del panel. */
     return `<button class="${cls.join(' ')}" style="${sitio(XY[pos],XYH[pos])}" data-pos="${pos}"
-      aria-label="${LBL[pos]}, ${todos.length} jugadores">
+      title="${LBL[pos]}" aria-label="${LBL[pos]}, ${todos.length} jugadores">
       <span class="disc"><span class="ini">${SHORT[pos]}</span><span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
-      <span class="lab">${LBL[pos]}</span></button>`;
+      </button>`;
   }).join('');
   /* el entrenador no ocupa demarcación: vive en el banquillo, FUERA del campo, colgando
      de la esquina inferior derecha. La flecha lo despliega hacia la izquierda; el disco,
