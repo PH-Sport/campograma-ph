@@ -341,7 +341,8 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
     transform:translateY(100%);gap:12px;
     padding:9px 18px calc(20px + env(safe-area-inset-bottom));
     box-shadow:var(--hoja-shadow);overscroll-behavior:contain;
-    transition:transform .22s ease}
+    /* height entra en la transición para que al soltar el estirado vuelva suave */
+    transition:transform .22s ease,height .22s ease}
   .drawer .grab{display:block}
 
   /* lista: filas de dos líneas en vez de tabla ancha */

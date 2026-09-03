@@ -304,12 +304,14 @@ let scrollDelFondo=null;
 function bloquearFondo(){
   if(!enHoja()||scrollDelFondo!==null)return;
   scrollDelFondo=window.scrollY;
+  document.documentElement.style.overflow='hidden';
   document.body.style.position='fixed';
   document.body.style.top=-scrollDelFondo+'px';
   document.body.style.width='100%';
 }
 function soltarFondo(){
   if(scrollDelFondo===null)return;
+  document.documentElement.style.overflow='';
   document.body.style.position='';
   document.body.style.top='';
   document.body.style.width='';
@@ -369,38 +371,48 @@ document.querySelector('.tally').addEventListener('click',e=>{
 $('#scrim').addEventListener('click',cerrar);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrar();});
 
-/* Arrastre de la hoja (solo en móvil). Sigue al dedo: hacia abajo, uno a uno, y si se
-   pasa del umbral se cierra al soltar. Hacia arriba no sube: cede un poco y frena, para
-   que se note que ahí se acaba el recorrido. El freno es exponencial —tiende a TOPE sin
-   llegar nunca—, que es lo que da sensación de goma en vez de tope seco.
-   Se agarra por el asa siempre, o por cualquier parte de la hoja mientras no esté
-   desplazada por dentro; si no, arrastrar para leer la cerraría sin querer. */
+/* Arrastre de la hoja (solo en móvil).
+
+   Hacia abajo la hoja acompaña al dedo y, pasando del umbral, cierra al soltar.
+   Hacia arriba NO se mueve: se ESTIRA. Moverla con translateY la despegaba del borde
+   inferior y dejaba ver el fondo por debajo; creciendo de alto se queda pegada abajo y
+   el amago se nota igual. El freno es exponencial —tiende a TOPE sin llegar—, que es lo
+   que da sensación de goma en vez de tope seco.
+
+   Y el fondo no se mueve nunca: cuando el contenido no puede desplazarse en el sentido
+   del dedo, el gesto se corta aquí en vez de rebotar en la página. Con body fijo no
+   bastaba; iOS seguía arrastrando la página por detrás al empujar sobre una tarjeta. */
 (function(){
   const d=$('#drawer'),hoja=matchMedia('(max-width:820px)');
   const TOPE=44, CIERRA=90;
-  const frena=dy=>-TOPE*(1-Math.exp(dy/TOPE));
-  let y0=0,dy=0,on=false,asa=false;
-  const suelta=()=>{on=false;d.style.transition='';d.style.transform='';};
+  const estira=dy=>TOPE*(1-Math.exp(dy/TOPE));
+  let y0=0,dy=0,arrastra=false,asa=false,alto0=0;
+  const suelta=()=>{arrastra=false;d.style.transition='';d.style.transform='';d.style.height='';};
+
   d.addEventListener('touchstart',e=>{
     if(!hoja.matches)return;
     asa=!!e.target.closest('.grab');
+    y0=e.touches[0].clientY;dy=0;
     /* por el cuerpo solo se agarra estando arriba del todo; si no, arrastrar para leer
        cerraría el panel sin querer */
-    if(!asa&&d.scrollTop>0)return;
-    y0=e.touches[0].clientY;dy=0;on=true;d.style.transition='none';
+    arrastra=asa||d.scrollTop<=0;
+    if(arrastra){alto0=d.getBoundingClientRect().height;d.style.transition='none';}
   },{passive:true});
+
   d.addEventListener('touchmove',e=>{
-    if(!on)return;
+    if(!hoja.matches)return;
     dy=e.touches[0].clientY-y0;
-    /* Hacia arriba por el cuerpo NO se arrastra la hoja: se suelta el gesto y que el
-       navegador desplace su contenido, que es lo que el dedo está pidiendo. La goma de
-       "no sube más" es solo del asa, que además tiene touch-action:none. */
-    if(!asa&&dy<0)return suelta();
-    d.style.transform='translateY('+(dy>0?dy:frena(dy))+'px)';
-  },{passive:true});
+    const sube=dy<0;
+    const sinSalida=sube?d.scrollTop+d.clientHeight>=d.scrollHeight-1:d.scrollTop<=0;
+
+    if(arrastra&&!sube){e.preventDefault();d.style.transform='translateY('+dy+'px)';return;}
+    if(asa&&sube){e.preventDefault();d.style.height=(alto0+estira(dy))+'px';return;}
+    if(arrastra)suelta();          /* cuerpo hacia arriba: el scroll es del contenido */
+    if(sinSalida)e.preventDefault();
+  },{passive:false});
+
   d.addEventListener('touchend',()=>{
-    if(!on)return;
-    const cierra=dy>CIERRA;
+    const cierra=arrastra&&dy>CIERRA;
     suelta();
     if(cierra)cerrar();
   });
