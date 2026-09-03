@@ -28,7 +28,8 @@
       "demarcacion": "POR",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "David Nunes",
@@ -37,7 +38,8 @@
       "demarcacion": "DFCD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Mati Barzic",
@@ -46,7 +48,8 @@
       "demarcacion": "DFCD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Gonzalo Rguez.",
@@ -55,7 +58,8 @@
       "demarcacion": "DFCD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Javi Hdez.",
@@ -64,7 +68,8 @@
       "demarcacion": "DFCI",
       "categoria": "elite",
       "situacion": "pte",
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Kevin Prieto",
@@ -73,7 +78,8 @@
       "demarcacion": "LD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Billy Gee",
@@ -82,7 +88,8 @@
       "demarcacion": "LD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "C. Manrique",
@@ -91,7 +98,8 @@
       "demarcacion": "LI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Francisco Días",
@@ -100,7 +108,8 @@
       "demarcacion": "LI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Víctor García",
@@ -109,7 +118,8 @@
       "demarcacion": "LI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Dani Muñoz",
@@ -118,7 +128,8 @@
       "demarcacion": "LI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Juan Lapasta",
@@ -127,7 +138,8 @@
       "demarcacion": "LI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Carlos Guirao",
@@ -136,7 +148,8 @@
       "demarcacion": "MC",
       "categoria": "elite",
       "situacion": "ces",
-      "cesionA": "Eldense"
+      "cesionA": "Eldense",
+      "foto": null
     },
     {
       "nombre": "Roberto Olabe",
@@ -145,7 +158,8 @@
       "demarcacion": "MC",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Guilherme Lopes",
@@ -154,7 +168,8 @@
       "demarcacion": "MC",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Damián Cáceres",
@@ -163,7 +178,8 @@
       "demarcacion": "MC",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Alberto del Moral",
@@ -172,7 +188,8 @@
       "demarcacion": "MC",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "A. Burlamaqui",
@@ -181,7 +198,8 @@
       "demarcacion": "MCOD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Dani Requena",
@@ -190,7 +208,8 @@
       "demarcacion": "MCOD",
       "categoria": "elite",
       "situacion": "ces",
-      "cesionA": "Levante"
+      "cesionA": "Levante",
+      "foto": null
     },
     {
       "nombre": "Juanjo",
@@ -199,7 +218,8 @@
       "demarcacion": "MCOD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Thiago Leal",
@@ -208,7 +228,8 @@
       "demarcacion": "MCOD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Tomás Mendes",
@@ -217,7 +238,8 @@
       "demarcacion": "MCOD",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Lawson S.",
@@ -226,7 +248,8 @@
       "demarcacion": "MCOI",
       "categoria": "elite",
       "situacion": "pte",
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Jannick Buyla",
@@ -235,7 +258,8 @@
       "demarcacion": "MCOI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "João Rgues.",
@@ -244,7 +268,8 @@
       "demarcacion": "MCOI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Iker Luque",
@@ -253,7 +278,8 @@
       "demarcacion": "ED",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Juan Cruz",
@@ -262,7 +288,8 @@
       "demarcacion": "ED",
       "categoria": "elite",
       "situacion": "ces",
-      "cesionA": "Málaga"
+      "cesionA": "Málaga",
+      "foto": null
     },
     {
       "nombre": "Owen Nmeka",
@@ -271,7 +298,8 @@
       "demarcacion": "ED",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Luis Quintero",
@@ -280,7 +308,8 @@
       "demarcacion": "ED",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Kauã do Vale",
@@ -289,7 +318,8 @@
       "demarcacion": "ED",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Dimitar Danev",
@@ -298,7 +328,8 @@
       "demarcacion": "EI",
       "categoria": "elite",
       "situacion": "pte",
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Salim El Jebari",
@@ -307,7 +338,8 @@
       "demarcacion": "EI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Abdoulaye Keyta",
@@ -316,7 +348,8 @@
       "demarcacion": "EI",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Abdellah Raihani",
@@ -325,7 +358,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Jordi Ferrer",
@@ -334,7 +368,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Jorge Delgado",
@@ -343,7 +378,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "João Vogt",
@@ -352,7 +388,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Martim Bernardo",
@@ -361,7 +398,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Sebastián Vidal",
@@ -370,7 +408,8 @@
       "demarcacion": "DEL",
       "categoria": "elite",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álex Domínguez",
@@ -379,7 +418,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álex Gil",
@@ -388,7 +428,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álvaro Várez",
@@ -397,7 +438,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Hugo Ríos",
@@ -406,7 +448,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Manu García",
@@ -415,7 +458,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Eduard Mohedano",
@@ -424,7 +468,8 @@
       "demarcacion": "POR",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Aimar",
@@ -433,7 +478,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Zeno Stassin",
@@ -442,7 +488,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Alberto C. «Tito»",
@@ -451,7 +498,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Hugo García",
@@ -460,7 +508,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Adrián Gómez",
@@ -469,7 +518,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "F. Tafalla",
@@ -478,7 +528,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Hugo Buyla",
@@ -487,7 +538,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Yeray Izquierdo",
@@ -496,7 +548,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Noah Stassin",
@@ -505,7 +558,8 @@
       "demarcacion": "DFCD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Adri Pérez",
@@ -514,7 +568,8 @@
       "demarcacion": "DFCI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Lucas Macazaga",
@@ -523,7 +578,8 @@
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": "ces",
-      "cesionA": "Ponferradina"
+      "cesionA": "Ponferradina",
+      "foto": null
     },
     {
       "nombre": "Santi Pallarés",
@@ -532,7 +588,8 @@
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "David Carreira",
@@ -541,7 +598,8 @@
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Á. Losfablos",
@@ -550,7 +608,8 @@
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "R. Alarcón",
@@ -559,7 +618,8 @@
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Agus Moreno",
@@ -568,7 +628,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Pere Haro",
@@ -577,7 +638,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Diego Robles",
@@ -586,7 +648,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Iker Vidal",
@@ -595,7 +658,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Eneko O.",
@@ -604,7 +668,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Víctor Villote",
@@ -612,8 +677,9 @@
       "club": "Las Palmas",
       "demarcacion": "LI",
       "categoria": "rfef",
-      "situacion": null,
-      "cesionA": null
+      "situacion": "pte",
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Izan Muñoz",
@@ -622,7 +688,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Adán Benítez",
@@ -631,7 +698,8 @@
       "demarcacion": "LI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "T. Helguera",
@@ -640,7 +708,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": "ces",
-      "cesionA": "Atm. B"
+      "cesionA": "Atm. B",
+      "foto": null
     },
     {
       "nombre": "Carlos Belda",
@@ -649,7 +718,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Asier Carmona",
@@ -658,7 +728,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Alberto Vela",
@@ -667,7 +738,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Pablo P.",
@@ -676,7 +748,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Óscar López",
@@ -685,7 +758,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "David Fdez.",
@@ -694,7 +768,8 @@
       "demarcacion": "MC",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Héctor Peña",
@@ -703,7 +778,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Mauro Valeiro",
@@ -712,7 +788,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Adrián Martín",
@@ -721,7 +798,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "B. Billups",
@@ -730,7 +808,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": "ces",
-      "cesionA": "Cartagena"
+      "cesionA": "Cartagena",
+      "foto": null
     },
     {
       "nombre": "Jordi Ortega",
@@ -739,7 +818,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "M. de Pedro",
@@ -748,7 +828,8 @@
       "demarcacion": "MCOD",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Txus Alba",
@@ -757,7 +838,8 @@
       "demarcacion": "MCOI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "M. Guilavert",
@@ -766,7 +848,8 @@
       "demarcacion": "MCOI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Manzanara",
@@ -775,7 +858,8 @@
       "demarcacion": "MCOI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "M. Talavera",
@@ -784,7 +868,8 @@
       "demarcacion": "MCOI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Omar O.",
@@ -793,7 +878,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Soldevilla",
@@ -802,7 +888,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Israel Motos",
@@ -811,7 +898,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Kwane Sosu",
@@ -820,7 +908,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "José Rey",
@@ -829,7 +918,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Fran Rivera",
@@ -838,7 +928,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Marc Bonilla",
@@ -847,7 +938,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Nacho Plaza",
@@ -856,7 +948,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Nico Exp.",
@@ -865,7 +958,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Lámina Ndir",
@@ -874,7 +968,8 @@
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Youssef",
@@ -883,7 +978,8 @@
       "demarcacion": "EI",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Ojgen Teofilovic",
@@ -892,7 +988,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": "ces",
-      "cesionA": "Compostela"
+      "cesionA": "Compostela",
+      "foto": null
     },
     {
       "nombre": "Rayan Zinebi",
@@ -901,7 +998,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": "ces",
-      "cesionA": "Real Madrid"
+      "cesionA": "Real Madrid",
+      "foto": null
     },
     {
       "nombre": "Iker Bachiller",
@@ -910,7 +1008,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Destiny",
@@ -919,7 +1018,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Raúl Mtnez.",
@@ -928,7 +1028,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álex de Weerd",
@@ -937,7 +1038,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "H. Tejada",
@@ -946,7 +1048,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Mateo Scianc.",
@@ -955,7 +1058,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Jorge Franco",
@@ -964,7 +1068,8 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Andrei Lupu",
@@ -973,7 +1078,58 @@
       "demarcacion": "DEL",
       "categoria": "rfef",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "A. Santiago",
+      "anio": 2007,
+      "club": "Español B",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Jorge Rajado",
+      "anio": 2006,
+      "club": "Atm. C",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": "pte",
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Marcos G.",
+      "anio": 2006,
+      "club": "Portuense",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "A. Anes",
+      "anio": 2007,
+      "club": "Guadalajara B",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Raúl Ojeda",
+      "anio": 2005,
+      "club": "Huesca B",
+      "demarcacion": "EI",
+      "categoria": "rfef",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Razvan",
@@ -982,7 +1138,8 @@
       "demarcacion": "POR",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Isaías Abuabara",
@@ -991,7 +1148,8 @@
       "demarcacion": "POR",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Manu López",
@@ -1000,7 +1158,8 @@
       "demarcacion": "POR",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "A. Barbera",
@@ -1009,7 +1168,8 @@
       "demarcacion": "POR",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Carlos Núñez",
@@ -1018,7 +1178,8 @@
       "demarcacion": "DFCD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Hugo Fdez.",
@@ -1027,7 +1188,8 @@
       "demarcacion": "DFCD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Liam Fdez.",
@@ -1036,7 +1198,8 @@
       "demarcacion": "DFCD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Marcos Ortega",
@@ -1045,7 +1208,8 @@
       "demarcacion": "DFCD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "J. Palacios",
@@ -1054,7 +1218,8 @@
       "demarcacion": "DFCI",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Tomás Méndez",
@@ -1063,7 +1228,8 @@
       "demarcacion": "DFCI",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "H. Velón",
@@ -1072,7 +1238,8 @@
       "demarcacion": "LD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Miguel",
@@ -1081,7 +1248,8 @@
       "demarcacion": "LD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Lucas Palma",
@@ -1090,7 +1258,8 @@
       "demarcacion": "LD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Leon Viera",
@@ -1099,7 +1268,8 @@
       "demarcacion": "LD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Ismael Delmas",
@@ -1108,7 +1278,8 @@
       "demarcacion": "LI",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álvaro Guti",
@@ -1117,7 +1288,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "A. Córcova",
@@ -1126,7 +1298,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "G. Mascali",
@@ -1135,7 +1308,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Manasés M.",
@@ -1144,7 +1318,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "F. Iglesias",
@@ -1153,7 +1328,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Eneas",
@@ -1162,7 +1338,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Raúl Picazo",
@@ -1171,7 +1348,8 @@
       "demarcacion": "MC",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Albert Nuet",
@@ -1180,7 +1358,8 @@
       "demarcacion": "MCOD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Marcos Méndez",
@@ -1189,7 +1368,8 @@
       "demarcacion": "MCOD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "J. Florek",
@@ -1198,7 +1378,8 @@
       "demarcacion": "MCOD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Jesús",
@@ -1207,7 +1388,8 @@
       "demarcacion": "MCOD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Juan Gavilán",
@@ -1216,7 +1398,8 @@
       "demarcacion": "MCOD",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "B. Mendoza",
@@ -1225,7 +1408,8 @@
       "demarcacion": "MCOI",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "A. de Frutos",
@@ -1234,7 +1418,8 @@
       "demarcacion": "ED",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "B. Villalba",
@@ -1243,7 +1428,8 @@
       "demarcacion": "ED",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Javi Benítez",
@@ -1252,7 +1438,8 @@
       "demarcacion": "ED",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Ángel Rguez.",
@@ -1261,7 +1448,8 @@
       "demarcacion": "ED",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Víc. Santiago",
@@ -1270,7 +1458,8 @@
       "demarcacion": "EI",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Pablo Ibáñez",
@@ -1279,7 +1468,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Unai Ordóñez",
@@ -1288,7 +1478,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Wilson",
@@ -1297,7 +1488,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Adri Vidican",
@@ -1306,7 +1498,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Emanuel Yeboah",
@@ -1315,7 +1508,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Saúl Glez.",
@@ -1324,7 +1518,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Babacar W.",
@@ -1333,7 +1528,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": "pte",
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Álvaro Caso",
@@ -1342,7 +1538,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "JL Mejías",
@@ -1351,7 +1548,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Dani Hdez.",
@@ -1360,7 +1558,8 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
     },
     {
       "nombre": "Pelayo M.",
@@ -1369,7 +1568,48 @@
       "demarcacion": "DEL",
       "categoria": "cantera",
       "situacion": null,
-      "cesionA": null
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Sule",
+      "anio": 2010,
+      "club": "Juv. Sanluqueño",
+      "demarcacion": "EI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Mig. Serrano",
+      "anio": 2009,
+      "club": "Juv. Atlético",
+      "demarcacion": "EI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Dani Guti",
+      "anio": 2009,
+      "club": "Juv. Girona",
+      "demarcacion": "EI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "P. Herrera",
+      "anio": 2009,
+      "club": "Juv. Cornellà",
+      "demarcacion": "EI",
+      "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
     }
   ]
 }

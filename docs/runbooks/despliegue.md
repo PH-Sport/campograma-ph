@@ -29,7 +29,7 @@ npx vercel --prod          # o push a la rama de producción si se conecta el re
 ## Comprobar después
 
 1. Abrir la URL y confirmar que las tres pestañas cargan y los contadores cuadran
-   (39 / 67 / 150 en total).
+   (39 / 72 / 48, 159 en total).
 2. Abrir un disco y una ficha.
 3. En móvil: el panel sube desde abajo, la lupa se despliega, no hay scroll lateral.
 

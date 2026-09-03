@@ -24,6 +24,9 @@ club propietario en `club`.
 `ph-sport-web` usa baja blanda (`hidden: true` + `note` con fecha y motivo); adoptar esa
 convención está pendiente. Mientras tanto, **explica la baja en el mensaje del commit**.
 
+**Foto de un jugador** — poner la URL en `foto`. Sale solo en su ficha; con `null` la
+ficha se pinta sin foto y no pasa nada.
+
 **Categoría nueva** — añadir a `categorias` con un `id` estable. Los `id` se usan como
 prefijo de los identificadores internos; cambiarlos rompe los enlaces del panel.
 

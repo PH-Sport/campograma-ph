@@ -7,9 +7,10 @@ const ORDER=['DEL','EI','ED','MCOI','MCOD','MC','LI','DFCI','DFCD','LD','POR'];
 /* coordenadas sobre el campo, en % — ataque hacia arriba */
 const XY={DEL:[50,11],EI:[16,27],ED:[84,27],MCOI:[32,41],MCOD:[68,41],MC:[50,56],
   LI:[12,72],DFCI:[37,77],DFCD:[63,77],LD:[88,72],POR:[50,91]};
-/* cara visible de cada demarcación: { 'elite:MC': 'https://…/foto.jpg' }.
-   Vacío = disco con el código de posición. Lo decide el equipo, no el código. */
-const CARAS={};
+/* listas que abren los contadores de cabecera */
+const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},
+  pte:{titulo:'Pendiente de movimiento',f:x=>x.e==='pte'},
+  gap:{titulo:'Sin club confirmado',f:x=>!x.c}};
 
 
 /* quita acentos para que la búsqueda case con o sin tilde */
@@ -23,6 +24,14 @@ const grupo=()=>DATA.find(g=>g.id===state.g);
 const filtrando=()=>!!state.q;
 
 function visible(x){ return !state.q || x._k.includes(state.q); }
+const hits=g=>g.j.filter(visible).length;
+
+/* aviso de "sin resultados" con las otras categorías donde sí hay coincidencias */
+function sinResultados(){
+  const otros=DATA.filter(g=>g.id!==state.g&&hits(g)>0)
+    .map(g=>`<button data-g="${g.id}">${g.corto} <span class="n">${hits(g)}</span></button>`);
+  return `<b>Sin resultados en ${grupo().corto}</b>${otros.length?otros.join(''):'Prueba con otro nombre o club.'}`;
+}
 
 function montarGrupos(){
   $('#grupos').innerHTML=DATA.map(g=>
@@ -57,17 +66,13 @@ function renderCampo(){
     const todos=js.filter(x=>x.pos===pos);
     const vis=todos.filter(visible).length;
     const [x,y]=XY[pos];
-    const cara=CARAS[state.g+':'+pos];
     const cls=['tok','f-'+F[pos]];
     if(!todos.length)cls.push('vac');
     if(filt&&!vis)cls.push('off');
     if(filt&&vis)cls.push('hit');
-    const disco=cara
-      ? `<img src="${cara}" alt="">`
-      : `<span class="ini">${SHORT[pos]}</span>`;
     return `<button class="${cls.join(' ')}" style="left:${x}%;top:${y}%" data-pos="${pos}"
       aria-label="${LBL[pos]}, ${todos.length} jugadores">
-      <span class="disc">${disco}<span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
+      <span class="disc"><span class="ini">${SHORT[pos]}</span><span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
       <span class="lab">${LBL[pos]}</span></button>`;
   }).join('');
   const t=grupo().tecnico;
@@ -75,7 +80,8 @@ function renderCampo(){
       aria-label="Entrenador ${t.split('—')[0].trim()}">
       <span class="disc"><span class="ini">ENT</span></span>
       <span class="lab">${t.split('—')[0].trim()}</span></button>`:'';
-  return `<div class="pitchwrap"><div class="pitch">
+  const aviso=filt&&!js.some(visible)?`<div class="none hint">${sinResultados()}</div>`:'';
+  return `${aviso}<div class="pitchwrap"><div class="pitch">
     <svg viewBox="0 0 68 105" preserveAspectRatio="none" aria-hidden="true">
       <g fill="none" stroke="var(--turf-line)" stroke-width=".5">
         <rect x="1.5" y="1.5" width="65" height="102"/>
@@ -99,7 +105,7 @@ function renderLista(){
     else{A=norm(x.n);B=norm(y.n);}
     return A<B?-d:A>B?d:0;
   });
-  if(!sorted.length)return `<div class="tablewrap"><div class="none"><b>Sin resultados</b>Prueba con otro nombre o quita los filtros.</div></div>`;
+  if(!sorted.length)return `<div class="tablewrap"><div class="none">${sinResultados()}</div></div>`;
   const ar=d>0?' ↑':' ↓';
   const th=(key,txt)=>`<th><button data-k="${key}">${txt}${k===key?ar:''}</button></th>`;
   return `<div class="tablewrap"><table>
@@ -108,13 +114,18 @@ function renderLista(){
       <td class="name">${x.n}</td>
       <td class="yr">'${x.a}</td>
       <td class="club${x.c?'':' gap'}">${x.c||'sin confirmar'}</td>
-      <td><span class="poschip f-${F[x.pos]}">${SHORT[x.pos]}</span></td>
-      <td>${x.e?`<span class="stchip sc-${x.e}">${x.e==='ces'?'Cesión'+(x.en?' · '+x.en:''):'Pte. mov.'}</span>`:''}</td>
+      <td class="pos"><span class="poschip f-${F[x.pos]}">${SHORT[x.pos]}</span></td>
+      <td class="st">${x.e?`<span class="stchip sc-${x.e}">${x.e==='ces'?'Cesión'+(x.en?' · '+x.en:''):'Pte. mov.'}</span>`:''}</td>
     </tr>`).join('')}</tbody></table></div>`;
 }
 
 function render(){
-  document.querySelectorAll('#grupos button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.g===state.g));
+  document.querySelectorAll('#grupos button').forEach(b=>{
+    const g=DATA.find(x=>x.id===b.dataset.g),h=filtrando()?hits(g):g.j.length;
+    b.setAttribute('aria-pressed',b.dataset.g===state.g);
+    b.querySelector('.n').textContent=h;
+    b.querySelector('.n').classList.toggle('hit',filtrando()&&h>0);
+  });
   document.querySelectorAll('#vista button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===state.v));
 
   const js=grupoJ(),vis=js.filter(visible);
@@ -122,11 +133,14 @@ function render(){
   $('#tCes').textContent=vis.filter(x=>x.e==='ces').length;
   $('#tPte').textContent=vis.filter(x=>x.e==='pte').length;
   $('#tGap').textContent=vis.filter(x=>!x.c).length;
+  document.querySelectorAll('.tally button').forEach(b=>{b.disabled=b.querySelector('b').textContent==='0';});
 
   $('#view').innerHTML=state.v==='campo'?renderCampo():renderLista();
 }
 
 $('#view').addEventListener('click',e=>{
+  const gb=e.target.closest('button[data-g]');
+  if(gb){state.g=gb.dataset.g;cerrar();render();return;}
   const th=e.target.closest('th button');
   if(th){const k=th.dataset.k;state.sort=state.sort.k===k?{k,d:-state.sort.d}:{k,d:1};render();return;}
   const tok=e.target.closest('.tok');
@@ -146,7 +160,6 @@ function filaJugador(x){
 function abrirPos(pos){
   const js=grupoJ().filter(x=>x.pos===pos);
   const muestra=filtrando()?js.filter(visible):js;
-  const cara=CARAS[state.g+':'+pos];
   state.panel={t:'pos',pos};
   pintar(`
     <div class="dhead">
@@ -156,20 +169,37 @@ function abrirPos(pos){
       </div>
       <button class="x" data-cerrar aria-label="Cerrar">×</button>
     </div>
-    <div style="display:flex;align-items:center;gap:14px">
-      ${cara?`<img src="${cara}" alt="" style="width:76px;height:76px;border-radius:50%;object-fit:cover">`
-            :`<div class="faceslot">Cara<br>visible</div>`}
-      <div>
-        <p style="margin:0;font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums;line-height:1">${muestra.length}</p>
-        <p style="margin:2px 0 0;font-size:12px;color:var(--muted)">jugador${muestra.length===1?'':'es'}${filtrando()&&muestra.length!==js.length?` de ${js.length}`:''}</p>
-      </div>
-    </div>
+    ${cuenta(muestra.length,js.length)}
     <hr>
     ${muestra.length
       ? `<ul class="plist">${muestra.map(filaJugador).join('')}</ul>`
       : `<p class="pempty">${js.length?'Ningún jugador de esta demarcación cumple el filtro.':'Demarcación vacante en esta categoría.'}</p>`}
   `);
 }
+
+function cuenta(n,total){
+  return `<p class="dcount"><b>${n}</b> jugador${n===1?'':'es'}${n!==total?` de ${total}`:''}</p>`;
+}
+
+function abrirSig(k){
+  const js=grupoJ().filter(visible).filter(SIG[k].f);
+  state.panel={t:'sig',k};
+  pintar(`
+    <div class="dhead">
+      <div>
+        <p class="dsub">${grupo().corto}</p>
+        <h2 class="dtitle">${SIG[k].titulo}</h2>
+      </div>
+      <button class="x" data-cerrar aria-label="Cerrar">×</button>
+    </div>
+    ${cuenta(js.length,js.length)}
+    <hr>
+    ${js.length?`<ul class="plist">${js.map(filaJugador).join('')}</ul>`:`<p class="pempty">Ninguno en esta categoría.</p>`}
+  `);
+}
+
+const tituloPanel=p=>p.t==='pos'?LBL[p.pos]:SIG[p.k].titulo;
+function abrirPanel(p){ p.t==='pos'?abrirPos(p.pos):abrirSig(p.k); }
 
 function abrirEnt(){
   const g=grupo(),[nom,rol]=g.tecnico.split('—').map(t=>t.trim());
@@ -189,46 +219,70 @@ function abrirEnt(){
     </dl>`);
 }
 
-function abrirJugador(id,volverA){
+function abrirJugador(id,volver){
   const x=ALL.find(y=>y.id===id);if(!x)return;
-  state.panel={t:'jug',id,volverA};
+  state.panel={t:'jug',id,volver};
+  const notas=[];
+  if(x.e==='ces')notas.push(`<p class="note">Cedido${x.en?' en el <b>'+x.en+'</b>':''}.</p>`);
+  if(x.e==='pte')notas.push(`<p class="note pte">Pendiente de movimiento.</p>`);
   pintar(`
     <div class="dhead">
-      ${volverA?`<button class="back" data-volver="${volverA}">← ${LBL[volverA]}</button>`:''}
+      ${volver?`<button class="back" data-volver>← ${tituloPanel(volver)}</button>`:''}
       <button class="x" data-cerrar aria-label="Cerrar">×</button>
     </div>
-    <h2 class="dtitle">${x.n}</h2>
+    <div class="dhero">
+      ${x.foto?`<img class="foto" src="${x.foto}" alt="">`:''}
+      <h2 class="dtitle">${x.n}</h2>
+    </div>
     <dl>
       <dt>Demarcación</dt><dd><span class="poschip f-${F[x.pos]}">${SHORT[x.pos]}</span> ${LBL[x.pos]}</dd>
-      <dt>Año</dt><dd class="mono">${x.anio}</dd>
+      <dt>Año</dt><dd class="cifra">${x.anio}</dd>
       <dt>Club</dt><dd>${x.c||'<span style="color:var(--sig-gap);font-style:italic">Sin confirmar</span>'}</dd>
       <dt>Categoría</dt><dd>${x.gn}</dd>
     </dl>
-    <hr>
-    ${x.e==='ces'?`<p class="note">Cedido${x.en?' en el <b>'+x.en+'</b>':''}. Revisar fecha de fin de cesión y opción de compra.</p>`:''}
-    ${x.e==='pte'?`<p class="note pte">Pendiente de movimiento. Operación abierta a día de hoy.</p>`:''}
-    ${!x.e?`<p style="color:var(--faint);font-size:12px;margin:0">Sin operaciones abiertas registradas.</p>`:''}
+    ${notas.length?'<hr>'+notas.join(''):''}
   `);
 }
 
+/* quién tenía el foco antes de abrir el panel, para devolvérselo al cerrar */
+let origenFoco=null;
 function pintar(html){
   const d=$('#drawer');
+  if(d.hidden){
+    origenFoco=document.activeElement;
+    d.hidden=false;requestAnimationFrame(()=>{d.classList.add('on');$('#scrim').classList.add('on');});
+  }
   d.innerHTML=`<span class="grab" aria-hidden="true"></span>`+html;
-  if(d.hidden){d.hidden=false;requestAnimationFrame(()=>{d.classList.add('on');$('#scrim').classList.add('on');});}
   d.scrollTop=0;
+  d.focus({preventScroll:true});
 }
 function cerrar(){
   state.panel=null;
-  const d=$('#drawer');d.classList.remove('on');$('#scrim').classList.remove('on');
+  const d=$('#drawer');if(d.hidden)return;
+  d.classList.remove('on');$('#scrim').classList.remove('on');
   setTimeout(()=>{if(!state.panel)d.hidden=true;},220);
+  if(origenFoco&&document.body.contains(origenFoco))origenFoco.focus({preventScroll:true});
+  origenFoco=null;
 }
+/* el tabulador no sale del panel mientras está abierto */
+$('#drawer').addEventListener('keydown',e=>{
+  if(e.key!=='Tab')return;
+  const d=$('#drawer'),f=[...d.querySelectorAll('button:not([disabled])')];
+  if(!f.length)return;
+  const a=document.activeElement;
+  if(e.shiftKey&&(a===f[0]||a===d)){f[f.length-1].focus();e.preventDefault();}
+  else if(!e.shiftKey&&a===f[f.length-1]){f[0].focus();e.preventDefault();}
+});
 
 $('#drawer').addEventListener('click',e=>{
   if(e.target.closest('[data-cerrar]'))return cerrar();
-  const v=e.target.closest('[data-volver]');
-  if(v)return abrirPos(v.dataset.volver);
+  if(e.target.closest('[data-volver]')&&state.panel&&state.panel.volver)return abrirPanel(state.panel.volver);
   const j=e.target.closest('[data-jug]');
-  if(j)return abrirJugador(j.dataset.jug,state.panel&&state.panel.t==='pos'?state.panel.pos:null);
+  if(j)return abrirJugador(j.dataset.jug,state.panel&&(state.panel.t==='pos'||state.panel.t==='sig')?state.panel:null);
+});
+document.querySelector('.tally').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-sig]');
+  if(b&&!b.disabled)abrirSig(b.dataset.sig);
 });
 $('#scrim').addEventListener('click',cerrar);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrar();});
@@ -264,7 +318,7 @@ async function cargar(){
     const g=porId[p.categoria];
     if(!g){console.warn('Categoría desconocida:',p.categoria,'—',p.nombre);continue;}
     g.j.push({n:p.nombre,anio:p.anio,a:String(p.anio).slice(2),c:p.club||'',
-              pos:p.demarcacion,e:p.situacion||null,en:p.cesionA||null,g:g.id,gn:g.nombre});
+              pos:p.demarcacion,e:p.situacion||null,en:p.cesionA||null,foto:p.foto||null,g:g.id,gn:g.nombre});
   }
   DATA.forEach(g=>g.j.forEach((x,i)=>{x.id=g.id+'-'+i;}));
   ALL=DATA.flatMap(g=>g.j);

@@ -51,6 +51,11 @@ el campo es la puerta de entrada.
 
 ## Temas
 
-Paleta en tokens CSS. `:root` define el modo claro completo; `prefers-color-scheme: dark`
-y `[data-theme="dark"]` redefinen solo los tokens. Ningún color se declara únicamente
+Paleta de PH Sport en tokens CSS (ver ADR 0005). **El tema base es el oscuro**, como la
+marca: `:root` define la paleta oscura completa; `prefers-color-scheme: light` y
+`[data-theme="light"]` redefinen solo los tokens. Ningún color se declara únicamente
 dentro de un bloque de tema.
+
+El marco (fondo, panel, líneas, tinta, césped) va en la escala neutra de PH sobre
+`#0d0f12`, y el oro `--acento` viste solo lo interactivo. Los colores de demarcación y
+situación son dato, no marca, y quedan fuera de la paleta de PH a propósito.

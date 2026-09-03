@@ -16,6 +16,7 @@ src.jugadores.forEach((p, i) => {
   if (!Number.isInteger(p.anio) || p.anio < 1930 || p.anio > 2030) errores.push(`${donde}: año "${p.anio}" fuera de rango`);
   if (!SITUACIONES.includes(p.situacion ?? null)) errores.push(`${donde}: situación "${p.situacion}" no válida`);
   if (p.situacion === 'ces' && !p.cesionA) avisos.push(`${donde}: cesión sin club de destino`);
+  if (p.foto != null && (typeof p.foto !== 'string' || !p.foto.trim())) errores.push(`${donde}: foto debe ser null o una URL`);
   if (!p.club) avisos.push(`${donde}: club sin confirmar`);
 });
 

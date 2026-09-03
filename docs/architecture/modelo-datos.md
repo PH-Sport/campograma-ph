@@ -24,7 +24,8 @@
       "demarcacion": "MC",         // ver tabla
       "categoria": "elite",        // debe existir en categorias[].id
       "situacion": "ces",          // null | "ces" | "pte"
-      "cesionA": "Eldense"         // solo con situacion "ces"
+      "cesionA": "Eldense",        // solo con situacion "ces"
+      "foto": null                 // URL de la foto del jugador, o null (ADR 0004)
     }
   ]
 }
@@ -56,6 +57,7 @@
 - `categoria` existe en `categorias`.
 - `anio` entero entre 1930 y 2030.
 - `situacion` es `null`, `"ces"` o `"pte"`.
+- `foto` es `null` o una cadena no vacía.
 - Sin duplicados exactos de `nombre|anio`.
 
 Y avisa (sin fallar) de: cesión sin destino, y club sin confirmar.
@@ -68,4 +70,3 @@ Y avisa (sin fallar) de: cesión sin destino, y club sin confirmar.
   (dónde juega hoy). Si algún día se fusionan, hacen falta los dos campos.
 - **Baja blanda.** `ph-sport-web` usa `hidden: true` + `note`. Aquí no hay nada
   equivalente: los jugadores que se van desaparecen sin rastro.
-- **Foto.** El hook existe (`CARAS` en `app.js`), el dato no.
