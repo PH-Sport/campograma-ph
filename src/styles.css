@@ -227,15 +227,17 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
   padding:20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
 .drawer[hidden]{display:none}
 .drawer.on{transform:none}
-.drawer .grab{display:none;width:40px;height:4px;border-radius:99px;background:var(--line);
-  align-self:center;flex:none;margin:0 0 2px}
+/* el asa se ve como una barrita de 4px pero mide 18 de alto, para que el dedo la agarre */
+.drawer .grab{display:none;width:64px;height:18px;align-self:center;flex:none;
+  margin:-2px 0 -4px;position:relative;touch-action:none}
+.drawer .grab::after{content:"";position:absolute;left:50%;top:7px;transform:translateX(-50%);
+  width:40px;height:4px;border-radius:99px;background:var(--line)}
 .dhead{display:flex;align-items:flex-start;gap:10px}
-.dhead .back{color:var(--muted);padding:2px 6px;display:grid;place-items:center;
+.dhead .ico{color:var(--muted);padding:3px;display:grid;place-items:center;
   transition:color .12s}
-.dhead .back svg{width:18px;height:18px;display:block}
-.dhead .back:hover{color:var(--ink)}
-.dhead .x{margin-left:auto;color:var(--muted);font-size:20px;line-height:1;padding:2px 8px}
-.dhead .x:hover{color:var(--ink)}
+.dhead .ico svg{width:18px;height:18px;display:block}
+.dhead .ico:hover{color:var(--ink)}
+.dhead .x{margin-left:auto}
 .dtitle{margin:0;font-weight:600;font-size:21px;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
 .dsub{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--faint);margin:-8px 0 0}
@@ -279,10 +281,18 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
 .drawer[data-dir="ade"]>*:not(.grab){animation:pasaAdelante .26s var(--ease) both}
 .drawer[data-dir="atras"]>*:not(.grab){animation:pasaAtras .26s var(--ease) both}
 @keyframes entraContenido{from{opacity:0}to{opacity:1}}
-/* Mismo fade al cambiar de vista o de categoría. Solo con la clase, que la pone render()
-   cuando de verdad cambia una de las dos: si no, el campo parpadearía con cada tecla del
-   buscador, que también repinta. */
-#view.cambia>*{animation:entraContenido .24s var(--ease) both}
+/* Al cambiar de vista o de categoría, algo más marcado que un fade: el bloque entra
+   subiendo. Solo con la clase, que la pone render() cuando de verdad cambia una de las
+   dos; si no, el campo parpadearía con cada tecla del buscador, que también repinta. */
+#view.cambia>*{animation:entraVista .3s var(--ease) both}
+@keyframes entraVista{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* En la lista el movimiento lo hacen las filas, en cascada, y el contenedor solo aparece.
+   El retraso se topa a la fila 15 para que el final de la tabla no se haga esperar: con
+   72 filas, escalonarlas todas serían más de dos segundos. */
+#view.cambia .tablewrap{animation-name:entraContenido}
+#view.cambia tbody tr{animation:entraFila .24s var(--ease) both;
+  animation-delay:calc(var(--i,0) * 14ms)}
+@keyframes entraFila{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 @keyframes pasaAdelante{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
 @keyframes pasaAtras{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
 

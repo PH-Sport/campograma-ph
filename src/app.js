@@ -123,7 +123,7 @@ function renderLista(){
   const th=(key,txt)=>`<th><button data-k="${key}">${txt}${k===key?ar:''}</button></th>`;
   return `<div class="tablewrap"><table>
     <thead><tr>${th('n','Jugador')}${th('a','Año')}${th('club','Club')}${th('pos','Demarcación')}<th>Situación</th></tr></thead>
-    <tbody>${sorted.map(x=>`<tr data-id="${x.id}">
+    <tbody>${sorted.map((x,i)=>`<tr data-id="${x.id}" style="--i:${Math.min(i,14)}">
       <td class="name">${x.n}</td>
       <td class="yr">'${x.a}</td>
       <td class="club${x.c?'':' gap'}">${x.c||'sin confirmar'}</td>
@@ -199,7 +199,7 @@ function abrirPos(pos){
         <p class="dsub">${grupo().corto}</p>
         <h2 class="dtitle">${LBL[pos]}</h2>
       </div>
-      <button class="x" data-cerrar aria-label="Cerrar">×</button>
+      ${btnCerrar}
     </div>
     ${cuenta(muestra.length,js.length)}
     <hr>
@@ -222,13 +222,20 @@ function abrirSig(k){
         <p class="dsub">${grupo().corto}</p>
         <h2 class="dtitle">${SIG[k].titulo}</h2>
       </div>
-      <button class="x" data-cerrar aria-label="Cerrar">×</button>
+      ${btnCerrar}
     </div>
     ${cuenta(js.length,js.length)}
     <hr>
     ${js.length?`<ul class="plist">${js.map(filaJugador).join('')}</ul>`:`<p class="pempty">Ninguno en esta categoría.</p>`}
   `);
 }
+
+/* cerrar y volver comparten caja y tamaño de icono: los dos son SVG de 18px dentro de
+   .ico. Con la × como carácter no cuadraban, porque el glifo ocupa menos que su caja. */
+const btnCerrar=`<button class="ico x" data-cerrar title="Cerrar" aria-label="Cerrar">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7"
+    stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5 13.5 13.5"/><path d="M13.5 4.5 4.5 13.5"/></svg>
+</button>`;
 
 const tituloPanel=p=>p.t==='pos'?LBL[p.pos]:SIG[p.k].titulo;
 function abrirPanel(p){ p.t==='pos'?abrirPos(p.pos):abrirSig(p.k); }
@@ -243,7 +250,7 @@ function abrirEnt(gid){
         <p class="dsub">Cuerpo técnico</p>
         <h2 class="dtitle">${nom}</h2>
       </div>
-      <button class="x" data-cerrar aria-label="Cerrar">×</button>
+      ${btnCerrar}
     </div>
     <dl>
       <dt>Rol</dt><dd>Entrenador</dd>
@@ -260,12 +267,12 @@ function abrirJugador(id,volver){
   if(x.e==='pte')notas.push(`<p class="note pte">Pendiente de movimiento.</p>`);
   pintar(`
     <div class="dhead">
-      ${volver?`<button class="back" data-volver title="Volver a ${tituloPanel(volver)}"
+      ${volver?`<button class="ico back" data-volver title="Volver a ${tituloPanel(volver)}"
         aria-label="Volver a ${tituloPanel(volver)}">
         <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7"
           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4 6 9l5 5"/></svg>
       </button>`:''}
-      <button class="x" data-cerrar aria-label="Cerrar">×</button>
+      ${btnCerrar}
     </div>
     <div class="dhero">
       ${x.foto?`<img class="foto" src="${x.foto}" alt="">`:''}
@@ -362,23 +369,40 @@ document.querySelector('.tally').addEventListener('click',e=>{
 $('#scrim').addEventListener('click',cerrar);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrar();});
 
-/* arrastrar hacia abajo para cerrar (solo hoja inferior) */
+/* Arrastre de la hoja (solo en móvil). Sigue al dedo: hacia abajo, uno a uno, y si se
+   pasa del umbral se cierra al soltar. Hacia arriba no sube: cede un poco y frena, para
+   que se note que ahí se acaba el recorrido. El freno es exponencial —tiende a TOPE sin
+   llegar nunca—, que es lo que da sensación de goma en vez de tope seco.
+   Se agarra por el asa siempre, o por cualquier parte de la hoja mientras no esté
+   desplazada por dentro; si no, arrastrar para leer la cerraría sin querer. */
 (function(){
   const d=$('#drawer'),hoja=matchMedia('(max-width:820px)');
-  let y0=0,dy=0,on=false;
+  const TOPE=44, CIERRA=90;
+  const frena=dy=>-TOPE*(1-Math.exp(dy/TOPE));
+  let y0=0,dy=0,on=false,asa=false;
+  const suelta=()=>{on=false;d.style.transition='';d.style.transform='';};
   d.addEventListener('touchstart',e=>{
-    if(!hoja.matches||d.scrollTop>0)return;
+    if(!hoja.matches)return;
+    asa=!!e.target.closest('.grab');
+    /* por el cuerpo solo se agarra estando arriba del todo; si no, arrastrar para leer
+       cerraría el panel sin querer */
+    if(!asa&&d.scrollTop>0)return;
     y0=e.touches[0].clientY;dy=0;on=true;d.style.transition='none';
   },{passive:true});
   d.addEventListener('touchmove',e=>{
     if(!on)return;
     dy=e.touches[0].clientY-y0;
-    if(dy>0)d.style.transform='translateY('+dy+'px)';
+    /* Hacia arriba por el cuerpo NO se arrastra la hoja: se suelta el gesto y que el
+       navegador desplace su contenido, que es lo que el dedo está pidiendo. La goma de
+       "no sube más" es solo del asa, que además tiene touch-action:none. */
+    if(!asa&&dy<0)return suelta();
+    d.style.transform='translateY('+(dy>0?dy:frena(dy))+'px)';
   },{passive:true});
   d.addEventListener('touchend',()=>{
     if(!on)return;
-    on=false;d.style.transition='';d.style.transform='';
-    if(dy>90)cerrar();
+    const cierra=dy>CIERRA;
+    suelta();
+    if(cierra)cerrar();
   });
 })();
 
