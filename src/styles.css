@@ -126,7 +126,7 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 .spacer{flex:1 1 0;min-width:0}
 
 /* ---------- campo ---------- */
-.pitchwrap{position:relative;margin:20px auto 0;max-width:620px}
+.pitchwrap{position:relative;margin:20px auto 0;max-width:620px;container-type:inline-size}
 .pitch{position:relative;width:100%;aspect-ratio:3/4;
   background:linear-gradient(180deg,var(--turf-a) 0%,var(--turf-b) 100%);
   border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -168,8 +168,12 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
      .wrap está centrado, los márgenes simétricos lo dejan centrado en la ventana. */
   .pitchwrap{max-width:none;
     margin-left:calc(50% - 30vw);margin-right:calc(50% - 30vw);
-    transition:margin-right .22s ease}
-  body.con-panel .pitchwrap{margin-right:calc(50% - 30vw + min(370px,92vw) + 24px)}
+    transition:margin .22s ease}
+  /* Con el panel abierto el campo se DESPLAZA a la izquierda, no se encoge: encogiéndolo
+     se quedaba en 374px de 1280 y los centrales acababan encima del portero. Desplazado
+     mantiene su tamaño y el delantero deja de quedar debajo del panel. */
+  body.con-panel .pitchwrap{
+    margin-left:calc(50% - 30vw - 140px);margin-right:calc(50% - 30vw + 140px)}
   /* 80 % de ancho, pero sin pasarse de alto: en un portátil de 1440x800 el campo salía
      de 896px y había que hacer scroll para ver al delantero. Con el tope, manda el que
      se quede corto de los dos, y el aspect-ratio encoge el ancho a la vez. */
@@ -178,12 +182,14 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
   .lineas--h{display:block}
   .pitch::after{background:repeating-linear-gradient(90deg,var(--turf-raya) 0 8.33%,transparent 8.33% 16.66%)}
   .tok{left:var(--xh);top:var(--yh)}
-  /* con el campo tan ancho, los discos se quedaban pequeños: un 10 % más, y el código,
-     el contador y su número escalan con ellos para que no se descompensen. */
-  .disc{width:75px}
-  .disc .ini{font-size:13.5px}
-  .cnt{min-width:22px;height:22px}
-  .cnt b{font-size:11px}
+  /* Los discos se miden contra el ANCHO DEL CAMPO (cqw), no contra la ventana: con el
+     panel abierto el campo se encoge bastante, y en píxeles fijos los discos se
+     amontonaban unos encima de otros. El tope de 84px es el tamaño con el panel cerrado,
+     un 11 % del campo; el código y el contador van al mismo ritmo. */
+  .disc{width:clamp(38px,11cqw,84px)}
+  .disc .ini{font-size:clamp(9px,1.95cqw,15px)}
+  .cnt{min-width:clamp(16px,3.1cqw,24px);height:clamp(16px,3.1cqw,24px)}
+  .cnt b{font-size:clamp(9px,1.5cqw,11.5px)}
 }
 
 /* ---------- lista ---------- */
@@ -224,9 +230,10 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
 .drawer .grab{display:none;width:40px;height:4px;border-radius:99px;background:var(--line);
   align-self:center;flex:none;margin:0 0 2px}
 .dhead{display:flex;align-items:flex-start;gap:10px}
-.dhead .back{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:5px 9px;white-space:nowrap}
-.dhead .back:hover{color:var(--ink);background:var(--raised)}
+.dhead .back{color:var(--muted);padding:2px 6px;display:grid;place-items:center;
+  transition:color .12s}
+.dhead .back svg{width:18px;height:18px;display:block}
+.dhead .back:hover{color:var(--ink)}
 .dhead .x{margin-left:auto;color:var(--muted);font-size:20px;line-height:1;padding:2px 8px}
 .dhead .x:hover{color:var(--ink)}
 .dtitle{margin:0;font-weight:600;font-size:21px;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
@@ -263,12 +270,21 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
 .dcount b{display:block;font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:22px;color:var(--ink);
   font-variant-numeric:tabular-nums;line-height:1;margin-bottom:2px}
 .drawer:focus-visible{outline:none}
-/* El contenido entra con un fade corto para que el texto no salte de golpe mientras la
-   hoja se redimensiona. Se dispara solo: innerHTML recrea los nodos y la animación
-   arranca con ellos, sin JavaScript que la lance. Dura algo menos que el redimensionado
-   (.22s contra .26s) para que termine de asentarse justo al final. */
+/* El contenido entra con un fade corto para que no cambie de golpe. Se dispara solo:
+   innerHTML recrea los nodos y la animación arranca con ellos, sin JavaScript que la
+   lance. Al navegar dentro del panel además se desliza, y el lado dice hacia dónde vas:
+   al entrar en un jugador entra por la derecha, al volver a la lista por la izquierda,
+   como el paso de página de una app. El data-dir lo pone pintar() en app.js. */
 .drawer>*:not(.grab){animation:entraContenido .22s var(--ease) both}
+.drawer[data-dir="ade"]>*:not(.grab){animation:pasaAdelante .26s var(--ease) both}
+.drawer[data-dir="atras"]>*:not(.grab){animation:pasaAtras .26s var(--ease) both}
 @keyframes entraContenido{from{opacity:0}to{opacity:1}}
+/* Mismo fade al cambiar de vista o de categoría. Solo con la clase, que la pone render()
+   cuando de verdad cambia una de las dos: si no, el campo parpadearía con cada tecla del
+   buscador, que también repinta. */
+#view.cambia>*{animation:entraContenido .24s var(--ease) both}
+@keyframes pasaAdelante{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+@keyframes pasaAtras{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
 
 /* ---------- entrenadores ---------- */
 /* Apartado propio al final, separado del campo: el entrenador no ocupa demarcación y

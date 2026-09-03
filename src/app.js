@@ -144,6 +144,9 @@ function marcador(sel){
   if(!seg.classList.contains('listo'))setTimeout(()=>seg.classList.add('listo'),0);
 }
 
+/* firma de lo que justifica una transición: la categoría y la vista. La búsqueda no
+   entra, porque repinta en cada tecla y el fade se volvería un parpadeo. */
+let ultimoRender='';
 function render(){
   document.querySelectorAll('#grupos button').forEach(b=>{
     const g=DATA.find(x=>x.id===b.dataset.g),h=filtrando()?hits(g):g.j.length;
@@ -161,6 +164,9 @@ function render(){
   $('#tGap').textContent=vis.filter(x=>!x.c).length;
   document.querySelectorAll('.tally button').forEach(b=>{b.disabled=b.querySelector('b').textContent==='0';});
 
+  const firma=state.g+'|'+state.v;
+  $('#view').classList.toggle('cambia',firma!==ultimoRender);
+  ultimoRender=firma;
   $('#view').innerHTML=state.v==='campo'?renderCampo():renderLista();
 }
 
@@ -254,7 +260,11 @@ function abrirJugador(id,volver){
   if(x.e==='pte')notas.push(`<p class="note pte">Pendiente de movimiento.</p>`);
   pintar(`
     <div class="dhead">
-      ${volver?`<button class="back" data-volver>← ${tituloPanel(volver)}</button>`:''}
+      ${volver?`<button class="back" data-volver title="Volver a ${tituloPanel(volver)}"
+        aria-label="Volver a ${tituloPanel(volver)}">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4 6 9l5 5"/></svg>
+      </button>`:''}
       <button class="x" data-cerrar aria-label="Cerrar">×</button>
     </div>
     <div class="dhero">
@@ -273,6 +283,11 @@ function abrirJugador(id,volver){
 
 /* quién tenía el foco antes de abrir el panel, para devolvérselo al cerrar */
 let origenFoco=null;
+/* Hacia dónde va la navegación dentro del panel, para que el contenido entre por el
+   lado correcto: 'ade' al entrar en un jugador, 'atras' al volver a la lista. Se pone
+   justo antes de navegar y pintar() lo consume, así que no hay que pasarlo por toda la
+   cadena de funciones de apertura. */
+let dirNav='';
 const enHoja=()=>matchMedia('(max-width:820px)').matches;
 
 /* Con la hoja abierta, el fondo no se mueve. No basta con overflow:hidden en el body:
@@ -306,6 +321,7 @@ function pintar(html){
     document.body.classList.add('con-panel');
     bloquearFondo();
   }
+  d.dataset.dir=dirNav;dirNav='';
   d.innerHTML=`<span class="grab" aria-hidden="true"></span>`+html;
   d.scrollTop=0;
   d.focus({preventScroll:true});
@@ -332,9 +348,12 @@ $('#drawer').addEventListener('keydown',e=>{
 
 $('#drawer').addEventListener('click',e=>{
   if(e.target.closest('[data-cerrar]'))return cerrar();
-  if(e.target.closest('[data-volver]')&&state.panel&&state.panel.volver)return abrirPanel(state.panel.volver);
+  if(e.target.closest('[data-volver]')&&state.panel&&state.panel.volver){
+    dirNav='atras';return abrirPanel(state.panel.volver);}
   const j=e.target.closest('[data-jug]');
-  if(j)return abrirJugador(j.dataset.jug,state.panel&&(state.panel.t==='pos'||state.panel.t==='sig')?state.panel:null);
+  if(j){const desde=state.panel&&(state.panel.t==='pos'||state.panel.t==='sig')?state.panel:null;
+    if(desde)dirNav='ade';
+    return abrirJugador(j.dataset.jug,desde);}
 });
 document.querySelector('.tally').addEventListener('click',e=>{
   const b=e.target.closest('button[data-sig]');

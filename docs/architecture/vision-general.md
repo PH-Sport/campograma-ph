@@ -76,6 +76,11 @@ portátil bajo manda el alto y el campo sale un poco más panorámico que uno re
 frente a 1,5 en 1440x800), cosa que el `preserveAspectRatio="none"` absorbe sin romper
 nada.
 
+Con el panel abierto el campo **se desplaza** a la izquierda, no se encoge: encogiéndolo
+se quedaba en 374px de 1280 y los centrales acababan encima del portero. Y los discos se
+miden en `cqw` contra el ancho del campo, no en píxeles fijos, para que la proporción
+aguante en cualquier tamaño (`container-type: inline-size` en `.pitchwrap`).
+
 ## Vista Lista
 
 Tabla ordenable por nombre, año, club y demarcación. Es la herramienta de trabajo real;
