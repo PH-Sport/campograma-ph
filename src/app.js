@@ -29,7 +29,7 @@ const SIG={ces:{titulo:'En cesión',f:x=>x.e==='ces'},
 /* quita acentos para que la búsqueda case con o sin tilde */
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 
-let state={g:null,q:'',v:'campo',sort:{k:'n',d:1},panel:null,banquillo:false};
+let state={g:null,q:'',v:'campo',sort:{k:'n',d:1},panel:null};
 
 const $=s=>document.querySelector(s);
 const grupoJ=()=>DATA.find(g=>g.id===state.g).j;
@@ -89,21 +89,6 @@ function renderCampo(){
       <span class="disc"><span class="ini">${SHORT[pos]}</span><span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
       </button>`;
   }).join('');
-  /* el entrenador no ocupa demarcación: vive en el banquillo, FUERA del campo, colgando
-     de la esquina inferior derecha. La flecha lo despliega hacia la izquierda; el disco,
-     ya desplegado, abre su ficha como los demás. */
-  const t=grupo().tecnico;
-  const nom=t?t.split('—')[0].trim():'';
-  const ent=t?`<div class="banquillo" data-abierto="${state.banquillo?1:0}">
-      <button class="tok tok--ent f-ent" data-ent="1" aria-label="Entrenador ${nom}">
-        <span class="disc"><span class="ini">ENT</span></span>
-        <span class="lab">${nom}</span>
-      </button>
-      <button class="tirador" data-banquillo aria-expanded="${state.banquillo}"
-        aria-label="${state.banquillo?'Ocultar':'Mostrar'} el banquillo">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10 8 6 12 10"/></svg>
-      </button></div>`:'';
   const aviso=filt&&!js.some(visible)?`<div class="none hint">${sinResultados()}</div>`:'';
   return `${aviso}<div class="pitchwrap"><div class="pitch">
     <svg class="lineas lineas--v" viewBox="0 0 68 105" preserveAspectRatio="none" aria-hidden="true">
@@ -122,7 +107,7 @@ function renderCampo(){
         <rect x="87" y="14" width="16.5" height="40"/><rect x="98" y="25" width="5.5" height="18"/>
         <rect x="1.5" y="14" width="16.5" height="40"/><rect x="1.5" y="25" width="5.5" height="18"/>
       </g></svg>
-    ${toks}</div>${ent}</div>`;
+    ${toks}</div></div>`;
 }
 
 /* ---------- lista ---------- */
@@ -188,15 +173,8 @@ $('#view').addEventListener('click',e=>{
   if(gb){state.g=gb.dataset.g;cerrar();render();return;}
   const th=e.target.closest('th button');
   if(th){const k=th.dataset.k;state.sort=state.sort.k===k?{k,d:-state.sort.d}:{k,d:1};render();return;}
-  const tir=e.target.closest('[data-banquillo]');
-  if(tir){ /* sin repintar, para que se vea la transición */
-    state.banquillo=!state.banquillo;
-    tir.closest('.banquillo').dataset.abierto=state.banquillo?'1':'0';
-    tir.setAttribute('aria-expanded',state.banquillo);
-    tir.setAttribute('aria-label',(state.banquillo?'Ocultar':'Mostrar')+' el banquillo');
-    return;}
   const tok=e.target.closest('.tok');
-  if(tok){tok.dataset.ent?abrirEnt():abrirPos(tok.dataset.pos);return;}
+  if(tok){abrirPos(tok.dataset.pos);return;}
   const row=e.target.closest('tr[data-id]');
   if(row)abrirJugador(row.dataset.id,null);
 });
@@ -253,8 +231,9 @@ function abrirSig(k){
 const tituloPanel=p=>p.t==='pos'?LBL[p.pos]:SIG[p.k].titulo;
 function abrirPanel(p){ p.t==='pos'?abrirPos(p.pos):abrirSig(p.k); }
 
-function abrirEnt(){
-  const g=grupo(),[nom,rol]=g.tecnico.split('—').map(t=>t.trim());
+function abrirEnt(gid){
+  const g=DATA.find(x=>x.id===gid);if(!g||!g.tecnico)return;
+  const [nom,rol]=g.tecnico.split('—').map(t=>t.trim());
   state.panel={t:'ent'};
   pintar(`
     <div class="dhead">
@@ -298,24 +277,66 @@ function abrirJugador(id,volver){
 
 /* quién tenía el foco antes de abrir el panel, para devolvérselo al cerrar */
 let origenFoco=null;
+const enHoja=()=>matchMedia('(max-width:820px)').matches;
+
+/* Con la hoja abierta, el fondo no se mueve. No basta con overflow:hidden en el body:
+   Safari de iOS lo ignora y sigue arrastrando la página por detrás. Fijar el body y
+   compensar el desplazamiento sí funciona, y al soltar se vuelve al mismo sitio. */
+let scrollDelFondo=null;
+function bloquearFondo(){
+  if(!enHoja()||scrollDelFondo!==null)return;
+  scrollDelFondo=window.scrollY;
+  document.body.style.position='fixed';
+  document.body.style.top=-scrollDelFondo+'px';
+  document.body.style.width='100%';
+}
+function soltarFondo(){
+  if(scrollDelFondo===null)return;
+  document.body.style.position='';
+  document.body.style.top='';
+  document.body.style.width='';
+  window.scrollTo(0,scrollDelFondo);
+  scrollDelFondo=null;
+}
+
+/* La hoja va anclada abajo, así que animar su altura hace que el borde de arriba suba o
+   baje solo. height:auto no se puede transicionar: hay que fijar la altura de partida en
+   píxeles, forzar el reflow y pasar a la de llegada, y devolverla a auto al terminar. */
+function animarAlto(d,desde){
+  d.style.height='auto';
+  const hasta=d.getBoundingClientRect().height;
+  if(Math.round(desde)===Math.round(hasta)){d.style.height='';return;}
+  d.style.height=desde+'px';
+  d.getBoundingClientRect();
+  d.style.height=hasta+'px';
+  clearTimeout(d._alto);
+  d._alto=setTimeout(()=>{d.style.height='';},300);
+}
+
 function pintar(html){
   const d=$('#drawer');
-  if(d.hidden){
+  const abriendo=d.hidden;
+  const desde=(!abriendo&&enHoja())?d.getBoundingClientRect().height:null;
+  if(abriendo){
     origenFoco=document.activeElement;
     d.hidden=false;requestAnimationFrame(()=>{d.classList.add('on');$('#scrim').classList.add('on');});
     /* en la vista ancha el campo llega hasta debajo del panel y le taparía el
        delantero; con esta clase el CSS lo encoge para que quepan los dos. */
     document.body.classList.add('con-panel');
+    bloquearFondo();
   }
   d.innerHTML=`<span class="grab" aria-hidden="true"></span>`+html;
   d.scrollTop=0;
   d.focus({preventScroll:true});
+  if(desde!==null)animarAlto(d,desde);
 }
 function cerrar(){
   state.panel=null;
   const d=$('#drawer');if(d.hidden)return;
   d.classList.remove('on');$('#scrim').classList.remove('on');
   document.body.classList.remove('con-panel');
+  clearTimeout(d._alto);d.style.height='';
+  soltarFondo();
   setTimeout(()=>{if(!state.panel)d.hidden=true;},220);
   if(origenFoco&&document.body.contains(origenFoco))origenFoco.focus({preventScroll:true});
   origenFoco=null;
@@ -363,6 +384,30 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrar();});
   });
 })();
 
+/* ---------- entrenadores ----------
+   Fuera del campo y fuera de las pestañas: un apartado propio al final, con los técnicos
+   de todas las categorías. Dentro del campo no encajaba —el entrenador no ocupa
+   demarcación— y por categoría habría quedado vacío en dos de las tres. */
+function montarTecnicos(){
+  const con=DATA.filter(g=>g.tecnico), cont=$('#tecnicos');
+  if(!con.length){cont.hidden=true;return;}
+  cont.innerHTML=`<details class="tecnicos">
+    <summary><span class="tt">Entrenadores</span><span class="n">${con.length}</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6 8 10 12 6"/></svg>
+    </summary>
+    <ul class="plist">${con.map(g=>{
+      const [nom,rol]=g.tecnico.split('—').map(t=>t.trim());
+      return `<li><button class="prow f-ent" data-tecnico="${g.id}">
+        <span class="nm">${nom}</span>
+        <span class="cl">${rol||g.corto}</span></button></li>`;}).join('')}</ul>
+  </details>`;
+}
+$('#tecnicos').addEventListener('click',e=>{
+  const b=e.target.closest('[data-tecnico]');
+  if(b)abrirEnt(b.dataset.tecnico);
+});
+
 /* ---------- carga ---------- */
 async function cargar(){
   const r=await fetch('./data/jugadores.json',{cache:'no-store'});
@@ -381,6 +426,7 @@ async function cargar(){
   ALL.forEach(x=>{x._k=norm(x.n+' '+x.c+' '+(x.en||''));});
   state.g=DATA[0].id;
   montarGrupos();
+  montarTecnicos();
   render();
 }
 

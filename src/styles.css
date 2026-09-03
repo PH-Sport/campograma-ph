@@ -152,10 +152,6 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
   box-shadow:0 0 0 2px var(--ground)}
 .cnt b{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10.5px;color:var(--panel);
   font-variant-numeric:tabular-nums;line-height:1}
-/* solo lo usa el banquillo: ahí el rótulo es el nombre del entrenador, no una etiqueta
-   descriptiva; sin él, "ENT" no diría quién es. */
-.lab{font-size:11px;font-weight:500;color:var(--ink-2);text-align:center;line-height:1.2;
-  text-wrap:balance}
 .tok.vac .disc{border-style:dashed;opacity:.65}
 .tok.vac .cnt{display:none}
 .tok.off{opacity:.2;pointer-events:none}
@@ -163,42 +159,26 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 
 .f-por{color:var(--pos-por)} .f-def{color:var(--pos-def)} .f-med{color:var(--pos-med)} .f-ata{color:var(--pos-ata)}
 .f-ent{color:var(--pos-ent)}
-.tok--ent .disc{border-style:dashed}
-.tok--ent .lab{color:var(--muted)}
 
 /* vista ancha: el campo se tumba y ataca hacia la derecha. Solo cambia la orientación;
    quién está en cada sitio lo decide XYH en app.js, que es XY girado. */
 @media (min-width:821px){
-  .pitchwrap{max-width:900px;transition:margin-right .22s ease}
-  body.con-panel .pitchwrap{margin-right:calc(min(370px,92vw) + 24px)}
-  .pitch{aspect-ratio:3/2}
+  /* el campo ocupa el 80 % del ANCHO DE LA VENTANA, no del contenedor: se sale del
+     .wrap por los dos lados con márgenes negativos. Como el .wrap está centrado, los
+     márgenes simétricos lo dejan centrado en la ventana. */
+  .pitchwrap{max-width:none;
+    margin-left:calc(50% - 40vw);margin-right:calc(50% - 40vw);
+    transition:margin-right .22s ease}
+  body.con-panel .pitchwrap{margin-right:calc(50% - 40vw + min(370px,92vw) + 24px)}
+  /* 80 % de ancho, pero sin pasarse de alto: en un portátil de 1440x800 el campo salía
+     de 896px y había que hacer scroll para ver al delantero. Con el tope, manda el que
+     se quede corto de los dos, y el aspect-ratio encoge el ancho a la vez. */
+  .pitch{aspect-ratio:3/2;max-height:calc(100dvh - 250px);margin-inline:auto}
   .lineas--v{display:none}
   .lineas--h{display:block}
   .pitch::after{background:repeating-linear-gradient(90deg,var(--turf-raya) 0 8.33%,transparent 8.33% 16.66%)}
   .tok{left:var(--xh);top:var(--yh)}
 }
-
-/* ---------- banquillo ---------- */
-/* El entrenador no ocupa demarcación: vive plegado en la esquina y lo saca la flecha.
-   Ocupa sitio siempre (no display:none) para que al desplegarse nada dé un salto. */
-.banquillo{position:relative;z-index:3;display:flex;align-items:flex-start;gap:6px;
-  width:max-content;margin:0 10px 0 auto}
-/* la flecha va montada sobre la línea de banda, mitad dentro y mitad fuera, como el
-   asa de un cajón. La burbuja se queda por debajo del campo, sin invadirlo. */
-.tirador{margin-top:-15px}
-.tok--ent{position:static;transform:none;
-  transition:opacity .2s ease,transform .2s ease,visibility .2s}
-.tok--ent:hover{transform:translateY(-2px)}
-.banquillo .tok--ent{width:auto;max-width:clamp(74px,19vw,104px)}
-.tok--ent:active{transform:scale(.99)}
-.banquillo[data-abierto="0"] .tok--ent{opacity:0;visibility:hidden;
-  transform:translateX(18px) scale(.92);pointer-events:none}
-.tirador{width:30px;height:30px;border-radius:50%;border:1px dashed currentColor;
-  color:var(--pos-ent);background:var(--panel);display:grid;place-items:center;flex:none;
-  box-shadow:var(--tok-shadow);transition:color .12s,transform .18s ease}
-.tirador svg{width:15px;height:15px;display:block}
-.tirador:hover{color:var(--ink-2)}
-.banquillo[data-abierto="1"] .tirador{transform:rotate(-90deg)}
 
 /* ---------- lista ---------- */
 .tablewrap{margin-top:18px;overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
@@ -278,6 +258,23 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
   font-variant-numeric:tabular-nums;line-height:1;margin-bottom:2px}
 .drawer:focus-visible{outline:none}
 
+/* ---------- entrenadores ---------- */
+/* Apartado propio al final, separado del campo: el entrenador no ocupa demarcación y
+   dentro del campo no encajaba. <details> nativo, sin JavaScript para plegarlo. */
+.tecnicos{border-top:1px solid var(--line-soft);margin-top:18px;padding-top:4px}
+.tecnicos summary{display:flex;align-items:center;gap:8px;padding:11px 2px;cursor:pointer;
+  list-style:none;color:var(--muted);transition:color .12s}
+.tecnicos summary::-webkit-details-marker{display:none}
+.tecnicos summary:hover{color:var(--ink)}
+.tecnicos .tt{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10px;
+  letter-spacing:.13em;text-transform:uppercase}
+.tecnicos .n{font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:10px;
+  color:var(--faint);font-variant-numeric:tabular-nums}
+.tecnicos summary svg{width:14px;height:14px;margin-left:auto;transition:transform .2s var(--ease)}
+.tecnicos[open] summary svg{transform:rotate(180deg)}
+.tecnicos .plist{padding-bottom:12px}
+.tecnicos .prow{align-items:center}
+
 /* ---------- pie ---------- */
 .legend{display:flex;flex-wrap:wrap;gap:7px 20px;margin-top:22px;padding-top:14px;border-top:1px solid var(--line-soft)}
 .legend span{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-detalle);font-weight:var(--peso-detalle);font-size:9.5px;
@@ -290,7 +287,6 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
   .tally{gap:22px}
   .tally div,.tally button{text-align:left}
   h1{font-size:23px}
-  .lab{font-size:10px}
   .search{flex:0 0 auto;min-width:0;max-width:none;width:36px}
   .searchbtn{display:grid}
   .search input,.search .clr{display:none}
@@ -302,7 +298,10 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
     border-left:none;border-top:1px solid var(--line);border-radius:16px 16px 0 0;
     transform:translateY(100%);gap:12px;
     padding:9px 18px calc(20px + env(safe-area-inset-bottom));
-    box-shadow:var(--hoja-shadow);overscroll-behavior:contain}
+    box-shadow:var(--hoja-shadow);overscroll-behavior:contain;
+    /* la altura se anima con la misma curva que la apertura: al crecer, el borde de
+       arriba sube; al menguar, baja. Los píxeles los pone animarAlto() en app.js. */
+    transition:transform .22s ease,height .26s var(--ease)}
   .drawer .grab{display:block}
 
   /* lista: filas de dos líneas en vez de tabla ancha */
