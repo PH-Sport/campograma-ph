@@ -20,7 +20,7 @@
   --ground:#0D0F12; --panel:#16181B; --raised:#1E2124;
   --line:#25272A; --line-soft:#1A1C1F;
   --ink:#FFFFFF; --ink-2:#CFCFD0; --muted:#9E9FA0; --faint:#6E6F71;
-  --turf-a:#15171A; --turf-b:#0F1114; --turf-line:#FFFFFF; --turf-line-op:.12;
+  --turf-a:#131B17; --turf-b:#0E1512; --turf-line:#FFFFFF; --turf-line-op:.13;
   --turf-raya:rgba(255,255,255,.015);
   --chip:#16181B; --chip-hover:#1E2124; --chip-on:#24272B;
   --acento:#D6B25E;
@@ -36,7 +36,7 @@
     --ground:#F4F5F6; --panel:#FFFFFF; --raised:#EBECEE;
     --line:#DBDDE0; --line-soft:#E9EAEC;
     --ink:#0D0F12; --ink-2:#3C4045; --muted:#6C7075; --faint:#9A9DA2;
-    --turf-a:#EDEEF0; --turf-b:#E3E5E8; --turf-line:#FFFFFF; --turf-line-op:.9;
+    --turf-a:#EAF0E7; --turf-b:#DFE7DC; --turf-line:#FFFFFF; --turf-line-op:.9;
     --turf-raya:rgba(13,15,18,.02);
     --chip:#FFFFFF; --chip-hover:#F3F4F5; --chip-on:#EAEBED;
     --acento:#A8893E;
@@ -52,7 +52,7 @@
   --ground:#F4F5F6; --panel:#FFFFFF; --raised:#EBECEE;
   --line:#DBDDE0; --line-soft:#E9EAEC;
   --ink:#0D0F12; --ink-2:#3C4045; --muted:#6C7075; --faint:#9A9DA2;
-  --turf-a:#EDEEF0; --turf-b:#E3E5E8; --turf-line:#FFFFFF; --turf-line-op:.9;
+  --turf-a:#EAF0E7; --turf-b:#DFE7DC; --turf-line:#FFFFFF; --turf-line-op:.9;
   --turf-raya:rgba(13,15,18,.02);
   --chip:#FFFFFF; --chip-hover:#F3F4F5; --chip-on:#EAEBED;
   --acento:#A8893E;
