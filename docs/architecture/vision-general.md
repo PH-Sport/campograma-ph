@@ -54,13 +54,15 @@ Con el panel abierto en vista ancha el campo se encoge para no quedar debajo de 
 Los discos representan **demarcaciones, no jugadores**. Al pulsar uno se abre el panel
 con su lista; desde ahí se entra a la ficha individual, con vuelta atrás.
 
-El entrenador vive en el banquillo: plegado en la esquina inferior derecha del campo,
-detrás de una flecha que lo despliega hacia la izquierda. Plegado no compite con las once
-demarcaciones; desplegado tiene el mismo tamaño de disco que ellas, con borde discontinuo
-y color neutro, porque no ocupa demarcación pero tampoco es un accesorio.
+El entrenador vive en el banquillo, **fuera del rectángulo del campo**, colgando de su
+esquina inferior derecha: no ocupa demarcación, así que tampoco ocupa sitio en el campo.
+Va plegado detrás de una flecha para no competir con los once discos y se despliega hacia
+la izquierda, que es hacia donde hay hueco con la flecha pegada al borde derecho.
+Desplegado tiene el mismo tamaño de disco que las demarcaciones, con borde discontinuo y
+color neutro: fuera del campo, pero no un accesorio.
 
-Se despliega hacia la izquierda y no hacia arriba a propósito: hacia arriba se solapaba
-con el lateral derecho en las pantallas estrechas.
+El hueco que ocupa está reservado siempre (la burbuja se oculta con `visibility`, no con
+`display`), así que al desplegarse no salta nada de lo que hay debajo.
 
 ## Vista Lista
 

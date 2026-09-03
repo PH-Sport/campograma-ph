@@ -81,8 +81,9 @@ function renderCampo(){
       <span class="disc"><span class="ini">${SHORT[pos]}</span><span class="cnt"><b>${filt?vis:todos.length}</b></span></span>
       <span class="lab">${LBL[pos]}</span></button>`;
   }).join('');
-  /* el entrenador no ocupa demarcación: vive en el banquillo, plegado en la esquina.
-     La flecha lo despliega; el disco, ya desplegado, abre su ficha como los demás. */
+  /* el entrenador no ocupa demarcación: vive en el banquillo, FUERA del campo, colgando
+     de la esquina inferior derecha. La flecha lo despliega hacia la izquierda; el disco,
+     ya desplegado, abre su ficha como los demás. */
   const t=grupo().tecnico;
   const nom=t?t.split('—')[0].trim():'';
   const ent=t?`<div class="banquillo" data-abierto="${state.banquillo?1:0}">
@@ -113,7 +114,7 @@ function renderCampo(){
         <rect x="87" y="14" width="16.5" height="40"/><rect x="98" y="25" width="5.5" height="18"/>
         <rect x="1.5" y="14" width="16.5" height="40"/><rect x="1.5" y="25" width="5.5" height="18"/>
       </g></svg>
-    ${toks}${ent}</div></div>`;
+    ${toks}</div>${ent}</div>`;
 }
 
 /* ---------- lista ---------- */
