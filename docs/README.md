@@ -2,7 +2,8 @@
 
 | Documento | Para qué |
 |---|---|
-| [`work/active/handoff-2026-09-03.md`](work/active/handoff-2026-09-03.md) | **Empezar aquí.** Estado, decisiones tomadas, pendientes y trampas. |
+| [`work/active/handoff-2026-09-03.md`](work/active/handoff-2026-09-03.md) | **Empezar aquí.** Estado vigente, decisiones tomadas, pendientes y trampas. |
+| [`work/active/handoff-2026-09-04.md`](work/active/handoff-2026-09-04.md) | Sesión de pulido: qué se probó y no valió, y qué quedó abierto. |
 | [`architecture/vision-general.md`](architecture/vision-general.md) | Cómo está montado y por qué así. |
 | [`architecture/modelo-datos.md`](architecture/modelo-datos.md) | Esquema de `data/jugadores.json`, campo a campo. |
 | [`decisions/`](decisions/) | ADRs. Una decisión por archivo, numeradas. |
