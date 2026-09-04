@@ -342,26 +342,34 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
   .tally{gap:22px}
   .tally div,.tally button{text-align:left}
   h1{font-size:23px}
+  /* Una sola fila que NO puede partirse. Es la clave de que el buscador se abra sin
+     tirones: mientras la barra podía envolver, había instantes de la transición en que
+     la suma de anchos se pasaba, Campo/Lista bajaba de línea y volvía a subir. Con
+     nowrap el reparto es continuo y no hay nada que saltar. */
+  .bar{flex-wrap:nowrap;gap:8px}
   #grupos{display:none}
-  .selgrupo{display:flex}
+  .spacer{display:none}
+  /* Campo/Lista no se comprime nunca: es el ancla de la derecha. */
+  #vista{flex:none}
+  /* el desplegable es la pieza que cede: en una pantalla muy estrecha se estrecha y
+     recorta su texto antes que dejar a Campo/Lista fuera de la pantalla */
+  .selgrupo{display:flex;flex:0 1 auto;min-width:56px;overflow:hidden}
+  .selgrupo select{min-width:0;text-overflow:ellipsis}
 
-  /* El buscador crece DENTRO de su fila, no saltando a otra: al abrirlo el desplegable
-     se recoge y el campo ocupa su sitio. Los dos transicionan el ancho, así que el
-     movimiento es continuo y nada cambia de línea de golpe. */
+  /* El buscador ocupa exactamente el hueco que quede: cerrado son 36px, abierto todo lo
+     que sobra tras el desplegable recogido y Campo/Lista. Sin topes calculados a mano,
+     que es lo que fallaba por unos píxeles según el dispositivo. */
   .search{flex:0 1 36px;min-width:36px;max-width:none;width:auto;overflow:hidden;
-    transition:flex-basis .26s var(--ease)}
+    transition:flex-basis .26s var(--ease),flex-grow .26s var(--ease)}
   .searchbtn{display:grid;position:absolute;inset:0;width:100%;height:100%}
   .search input{opacity:0;pointer-events:none}
   .search .clr{opacity:0;pointer-events:none;transition:opacity .16s}
-  /* el tope deja sitio a Campo/Lista: sin él, el buscador los empujaba a otra fila y
-     volvía el salto que se quería quitar */
-  .search.open{flex:1 1 auto;max-width:calc(100% - 160px)}
+  .search.open{flex:1 1 36px}
   .search.open .searchbtn{opacity:0;pointer-events:none}
   .search.open input{opacity:1;pointer-events:auto}
   .search.open .clr{opacity:1;pointer-events:auto}
   .bar:has(.search.open) .selgrupo{width:0!important;opacity:0;overflow:hidden;
     transition:width .26s var(--ease),opacity .18s}
-  .spacer{display:none}
   /* Altura fija, no la que pida el contenido: así el botón de cerrar y el de volver
      caen siempre en el mismo punto de la pantalla y el dedo los encuentra sin mirar.
      60 % y no menos porque la idea es ver la ficha entera de un vistazo: con 40 % solo
