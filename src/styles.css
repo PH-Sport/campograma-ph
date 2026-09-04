@@ -111,13 +111,30 @@ h1{font-weight:600;font-size:27px;letter-spacing:-.018em;margin:0;text-wrap:bala
 .seg button[aria-pressed="true"] .n{color:var(--muted)}
 .seg .n.hit{color:var(--acento)}
 
+/* Desplegable de categoría. Solo en móvil; en escritorio mandan las pestañas. El ancho
+   se lo pone anchoSelect() en píxeles para que pueda transicionar. */
+.selgrupo{display:none;position:relative;align-items:center;flex:none;
+  background:var(--raised);border-radius:8px;
+  transition:width .26s var(--ease)}
+.selgrupo select{appearance:none;-webkit-appearance:none;width:100%;
+  font:inherit;font-weight:500;font-size:12.5px;color:var(--ink);
+  background:none;border:none;padding:9px 30px 9px 11px;border-radius:8px}
+.selgrupo select:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.selgrupo>svg{position:absolute;right:10px;width:14px;height:14px;
+  color:var(--muted);pointer-events:none}
+/* fuera de pantalla, solo para medir cuánto ocupa el texto de la opción activa */
+.medidor{position:absolute;left:-9999px;top:0;white-space:nowrap;
+  font-family:var(--f-sans);font-weight:500;font-size:12.5px}
+
 .search{position:relative;flex:1 1 190px;min-width:160px;max-width:290px}
 .searchbtn{display:none;width:36px;height:36px;border-radius:9px;border:1px solid var(--line);
-  background:var(--panel);color:var(--muted);place-items:center}
+  background:var(--panel);color:var(--muted);place-items:center;
+  transition:opacity .16s,color .12s}
 .searchbtn:hover{color:var(--ink)}
 .searchbtn svg{width:17px;height:17px;display:block}
 .search input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:8px;
-  padding:8px 30px 8px 11px;color:var(--ink);font-size:16px;font-family:var(--f-sans)}
+  padding:8px 30px 8px 11px;color:var(--ink);font-size:16px;font-family:var(--f-sans);
+  transition:opacity .2s var(--ease),border-color .12s}
 .search input::placeholder{color:var(--faint)}
 .search input:focus{border-color:var(--acento);outline:none}
 .search .clr{position:absolute;right:3px;top:50%;transform:translateY(-50%);padding:5px 8px;color:var(--faint);font-size:16px;line-height:1}
@@ -325,13 +342,26 @@ td.club.gap{color:var(--sig-gap);font-style:italic}
   .tally{gap:22px}
   .tally div,.tally button{text-align:left}
   h1{font-size:23px}
-  .search{flex:0 0 auto;min-width:0;max-width:none;width:36px}
-  .searchbtn{display:grid}
-  .search input,.search .clr{display:none}
-  .search.open{flex:1 1 100%;width:100%;order:9}
-  .search.open .searchbtn{display:none}
-  .search.open input{display:block}
-  .search.open .clr{display:block}
+  #grupos{display:none}
+  .selgrupo{display:flex}
+
+  /* El buscador crece DENTRO de su fila, no saltando a otra: al abrirlo el desplegable
+     se recoge y el campo ocupa su sitio. Los dos transicionan el ancho, así que el
+     movimiento es continuo y nada cambia de línea de golpe. */
+  .search{flex:0 1 36px;min-width:36px;max-width:none;width:auto;overflow:hidden;
+    transition:flex-basis .26s var(--ease)}
+  .searchbtn{display:grid;position:absolute;inset:0;width:100%;height:100%}
+  .search input{opacity:0;pointer-events:none}
+  .search .clr{opacity:0;pointer-events:none;transition:opacity .16s}
+  /* el tope deja sitio a Campo/Lista: sin él, el buscador los empujaba a otra fila y
+     volvía el salto que se quería quitar */
+  .search.open{flex:1 1 auto;max-width:calc(100% - 160px)}
+  .search.open .searchbtn{opacity:0;pointer-events:none}
+  .search.open input{opacity:1;pointer-events:auto}
+  .search.open .clr{opacity:1;pointer-events:auto}
+  .bar:has(.search.open) .selgrupo{width:0!important;opacity:0;overflow:hidden;
+    transition:width .26s var(--ease),opacity .18s}
+  .spacer{display:none}
   /* Altura fija, no la que pida el contenido: así el botón de cerrar y el de volver
      caen siempre en el mismo punto de la pantalla y el dedo los encuentra sin mirar.
      60 % y no menos porque la idea es ver la ficha entera de un vistazo: con 40 % solo

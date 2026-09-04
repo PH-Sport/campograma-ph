@@ -45,7 +45,22 @@ function sinResultados(){
 function montarGrupos(){
   $('#grupos').innerHTML=DATA.map(g=>
     `<button data-g="${g.id}" aria-pressed="${g.id===state.g}">${g.corto}<span class="n">${g.j.length}</span></button>`).join('');
+  /* en móvil las tres pestañas no caben cómodas: mismo dato en un desplegable nativo,
+     que además abre la rueda del sistema y no hay que inventarse la accesibilidad */
+  $('#grupoSel').innerHTML=DATA.map(g=>
+    `<option value="${g.id}">${g.corto} · ${g.j.length}</option>`).join('');
 }
+/* El desplegable se ciñe a su texto, así que al cambiar de categoría cambia de ancho.
+   Se lo medimos y se lo damos en píxeles para que la transición de CSS tenga dos números
+   entre los que ir; con width:auto el salto sería seco y arrastraría a la lupa. */
+function anchoSelect(){
+  const s=$('#grupoSel'),m=$('#medidor'),c=s.parentElement;
+  const op=s.options[s.selectedIndex];
+  if(!op)return;
+  m.textContent=op.text;
+  c.style.width=(m.offsetWidth+40)+'px';
+}
+$('#grupoSel').addEventListener('change',e=>{state.g=e.target.value;cerrar();render();});
 $('#grupos').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
   state.g=b.dataset.g;cerrar();render();});
 $('#vista').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
@@ -164,6 +179,8 @@ function render(){
   $('#tGap').textContent=vis.filter(x=>!x.c).length;
   document.querySelectorAll('.tally button').forEach(b=>{b.disabled=b.querySelector('b').textContent==='0';});
 
+  $('#grupoSel').value=state.g;
+  anchoSelect();
   const firma=state.g+'|'+state.v;
   $('#view').classList.toggle('cambia',firma!==ultimoRender);
   ultimoRender=firma;
