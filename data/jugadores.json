@@ -1,7 +1,7 @@
 {
   "$schema": "docs/architecture/modelo-datos.md",
-  "actualizado": "2026-09-03",
-  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03)",
+  "actualizado": "2026-09-14",
+  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03); seis clubes actualizados el 2026-09-14 desde el grupo de WhatsApp (Diego PH), pendientes de reflejarse en el Numbers",
   "categorias": [
     {
       "id": "elite",
@@ -64,10 +64,10 @@
     {
       "nombre": "Javi Hdez.",
       "anio": 1998,
-      "club": "Leganés",
+      "club": "Cerezo Osaka",
       "demarcacion": "DFCI",
       "categoria": "elite",
-      "situacion": "pte",
+      "situacion": null,
       "cesionA": null,
       "foto": null
     },
@@ -584,7 +584,7 @@
     {
       "nombre": "Santi Pallarés",
       "anio": 2005,
-      "club": "LP C",
+      "club": "Europa",
       "demarcacion": "LD",
       "categoria": "rfef",
       "situacion": null,
@@ -674,10 +674,10 @@
     {
       "nombre": "Víctor Villote",
       "anio": 2004,
-      "club": "Las Palmas",
+      "club": "Nàstic",
       "demarcacion": "LI",
       "categoria": "rfef",
-      "situacion": "pte",
+      "situacion": null,
       "cesionA": null,
       "foto": null
     },
@@ -934,7 +934,7 @@
     {
       "nombre": "Marc Bonilla",
       "anio": 2005,
-      "club": "Damm",
+      "club": "Español",
       "demarcacion": "ED",
       "categoria": "rfef",
       "situacion": null,
@@ -1094,10 +1094,10 @@
     {
       "nombre": "Jorge Rajado",
       "anio": 2006,
-      "club": "Atm. C",
+      "club": "RM C",
       "demarcacion": "EI",
       "categoria": "rfef",
-      "situacion": "pte",
+      "situacion": null,
       "cesionA": null,
       "foto": null
     },
@@ -1524,10 +1524,10 @@
     {
       "nombre": "Babacar W.",
       "anio": 2008,
-      "club": "Villarreal",
+      "club": "V. Guimarães",
       "demarcacion": "DEL",
       "categoria": "cantera",
-      "situacion": "pte",
+      "situacion": null,
       "cesionA": null,
       "foto": null
     },
