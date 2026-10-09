@@ -1,7 +1,7 @@
 {
   "$schema": "docs/architecture/modelo-datos.md",
-  "actualizado": "2026-09-14",
-  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03); seis clubes actualizados el 2026-09-14 desde el grupo de WhatsApp (Diego PH), pendientes de reflejarse en el Numbers",
+  "actualizado": "2026-10-09",
+  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03); seis clubes actualizados el 2026-09-14 desde el grupo de WhatsApp (Diego PH), pendientes de reflejarse en el Numbers; seis altas el 2026-10-09 desde el mismo grupo, con categoría sin confirmar",
   "categorias": [
     {
       "id": "elite",
@@ -18,6 +18,11 @@
       "id": "cantera",
       "nombre": "Cantera",
       "corto": "Cantera"
+    },
+    {
+      "id": "sinconfirmar",
+      "nombre": "Categoría sin confirmar",
+      "corto": "Sin confirmar"
     }
   ],
   "jugadores": [
@@ -1607,6 +1612,66 @@
       "club": "Juv. Cornellà",
       "demarcacion": "EI",
       "categoria": "cantera",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Jesús Bernal",
+      "anio": 1996,
+      "club": "Racing Ferrol",
+      "demarcacion": "MC",
+      "categoria": "sinconfirmar",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Ángel López",
+      "anio": 2003,
+      "club": null,
+      "demarcacion": "LD",
+      "categoria": "sinconfirmar",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Abel Seral",
+      "anio": 2007,
+      "club": "Huesca",
+      "demarcacion": "EI",
+      "categoria": "sinconfirmar",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Javier Alamán",
+      "anio": 2010,
+      "club": "Huesca",
+      "demarcacion": "DEL",
+      "categoria": "sinconfirmar",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Jaime Loureda",
+      "anio": 2011,
+      "club": "Huesca",
+      "demarcacion": "DEL",
+      "categoria": "sinconfirmar",
+      "situacion": null,
+      "cesionA": null,
+      "foto": null
+    },
+    {
+      "nombre": "Álvaro Fernández",
+      "anio": 2009,
+      "club": "Racing Zaragoza",
+      "demarcacion": "LD",
+      "categoria": "sinconfirmar",
       "situacion": null,
       "cesionA": null,
       "foto": null
