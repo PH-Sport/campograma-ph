@@ -1,7 +1,7 @@
 {
   "$schema": "docs/architecture/modelo-datos.md",
-  "actualizado": "2026-10-09",
-  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03); seis clubes actualizados el 2026-09-14 desde el grupo de WhatsApp (Diego PH), pendientes de reflejarse en el Numbers; seis altas el 2026-10-09 desde el mismo grupo, con categoría sin confirmar",
+  "actualizado": "2026-10-10",
+  "origen": "CAMPOGRAMA JUGADORES PH.numbers (5 hojas, extraccion 2026-09-03); seis clubes actualizados el 2026-09-14 desde el grupo de WhatsApp (Diego PH), pendientes de reflejarse en el Numbers; seis altas el 2026-10-09 desde el mismo grupo, con categoría sin confirmar (tres de ellas completadas el 2026-10-10 con fuentes públicas)",
   "categorias": [
     {
       "id": "elite",
@@ -1621,7 +1621,7 @@
       "anio": 1996,
       "club": "Racing Ferrol",
       "demarcacion": "MC",
-      "categoria": "sinconfirmar",
+      "categoria": "rfef",
       "situacion": null,
       "cesionA": null,
       "foto": null
@@ -1631,7 +1631,7 @@
       "anio": 2003,
       "club": null,
       "demarcacion": "LD",
-      "categoria": "sinconfirmar",
+      "categoria": "rfef",
       "situacion": null,
       "cesionA": null,
       "foto": null
@@ -1641,7 +1641,7 @@
       "anio": 2007,
       "club": "Huesca",
       "demarcacion": "EI",
-      "categoria": "sinconfirmar",
+      "categoria": "rfef",
       "situacion": null,
       "cesionA": null,
       "foto": null
